@@ -1,0 +1,11 @@
+<p>add-candidate works!</p>
+<form [formGroup]="form" >
+    fullName ::  <input type="text" formControlName="fullName" >
+    Symbol ::  <input type="file" (change)="uploadFile($event)">
+    Adhar No ::<input type="text" formControlName="adharNo">
+    Email ::  <input type="text" formControlName="email">
+    ElectionId ::  <input type="text" formControlName="electionId">
+
+    <input type="button" name="submit" id="" (click)="submitForm() "value="submit">
+
+</form>

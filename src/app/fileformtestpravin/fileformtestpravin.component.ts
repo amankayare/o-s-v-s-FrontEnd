@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 @Component({
-  selector: 'app-addcandidate',
-  templateUrl: './addcandidate.component.html',
-  styleUrls: ['./addcandidate.component.css']
+  selector: 'app-fileformtestpravin',
+  templateUrl: './fileformtestpravin.component.html',
+  styleUrls: ['./fileformtestpravin.component.css']
 })
-export class AddcandidateComponent implements OnInit {
+export class FileformtestpravinComponent implements OnInit {
+
 
   form: FormGroup;
-  public electionId:Number
+
   ngOnInit(): void {
   }
 
@@ -17,7 +19,6 @@ export class AddcandidateComponent implements OnInit {
 
   constructor(private http: HttpClient, public fb: FormBuilder) {
 
-    this.electionId = 10;
     this.form = this.fb.group({
       fullName: [''],
       email: [''],
@@ -49,21 +50,18 @@ export class AddcandidateComponent implements OnInit {
     formData.append("fullName", this.form.get("fullName")?.value);
     formData.append("email", this.form.get("email")?.value);
     formData.append("adharNo", this.form.get("adharNo")?.value);
-    formData.append("electionId", this.electionId);
+    formData.append("electionId", this.form.get("electionId")?.value);
     formData.append("symbol", this.form.get("symbol")?.value);
 
 
     let headers = new HttpHeaders();
     headers.append("Accept", "application/json");
     headers.append("Content-Type", "application/json");
-    headers.append("Authorization", "my_token");
-    headers.append("responseType", "text");
-
-    
+    headers.append("Authorization", `my_token`);
 
     this.http.post('http://localhost:8080/E-Ballot/api/addCandidate', formData, { headers: headers }).subscribe(
       (response) => console.log(response),
-      (error) => console.log(JSON.parse(JSON.stringify(error)))
+      (error) => console.log(error)
     )
 
   }
