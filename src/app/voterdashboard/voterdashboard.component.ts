@@ -11,6 +11,7 @@ export class VoterdashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

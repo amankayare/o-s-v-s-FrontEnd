@@ -18,6 +18,10 @@ import { VoterdashboardComponent } from './voterdashboard/voterdashboard.compone
 import { ResultComponent } from './result/result.component';
 import { VotecandidateComponent } from './votecandidate/votecandidate.component';
 import { ViewComponent } from './view/view.component';
+import { CandidateorganisationComponent } from './candidateorganisation/candidateorganisation.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ManagevoterComponent } from './managevoter/managevoter.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { ViewComponent } from './view/view.component';
     VoterdashboardComponent,
     ResultComponent,
     VotecandidateComponent,
-    ViewComponent
+    ViewComponent,
+    CandidateorganisationComponent,
+    AboutusComponent,
+    ManagevoterComponent,
+    ProfileComponent
    
   ],
   imports: [

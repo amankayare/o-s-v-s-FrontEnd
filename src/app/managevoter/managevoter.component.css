@@ -1,121 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito|Bungee');
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: whitesmoke;
-  color:#313348 ;
-  text-align: center;
-}
-
-
-
-
-*{
-  box-sizing: border-box;
-  
-  margin: 0;
-  padding: 0;
-}
-body{
-  padding: 10px;
-}
-.poll-container{
-  margin-top: 100px;
-  width: 100%;
-  height: auto;
-  position: relative;
-  border: 3px solid #ADC0DF;
-  border-radius: 3px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-.poll-division .bar:last-child{
-  border-right: none;
-}
-.poll-voter{
-  width: 100%;
-  height: auto;
-  position: relative;
-  padding: 10px;
-  border-radius: 3px;
-  background: #eee;
-}
-.poll-voter .poll-title{
-  margin-bottom: 5px;
-  color: #393939;
-  margin-left: 10px;
-  font-family: 'Arial';
-  color: #1E417C;
-  font-size: 20px;
-}
-
-.poll-list{
-  width: 100%;
-  position: relative;
-  margin-top: 10px;
-  border-spacing: 10px 10px;
-}
-
-.poll-option{
-  background: #fafafa;
-  height: auto;
-  border-radius: 3px;
-  width: 50%;
-  padding: 2px 19px;
-  padding-left: 10px;
-  position: relative;
-  z-index: 5;
-  min-height: 40px;
-  overflow: hidden;
-}
-.poll-option p{
-  z-index: 20;
-}
-
-.poll-option-bar{
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  background: #dce6f7;
-  z-index: -10;
-  transition: 1s ease-out;
-}
-.vote-btn{
- 
-  border: none;
-  border-radius: 3px;
-  padding: 7px 14px;
-  background:  #2b2f3a;
-  color: white;
-  float: right;
-  cursor: pointer;
-  outline: none;
-  transition: 250ms;
-}
-.vote-btn:hover{
-    background-color: #a0accc;
-}
-.vote-btn:active{
-  background:  #2b2f3a;;
-  border: 0px;
-  transition: 0ms;
-}
-
-.checkup{
-  font-weight: bold;
-  animation: popin 350ms linear;
-}
-
-@keyframes popin {
-  0%{transform: scale(0);}
-  65%{transform: scale(5);}
-  80%{transform: scale(0);}
-  100%{transform: scale(1);}
-}
 * {
     padding: 0;
     margin: 0;
@@ -140,7 +22,7 @@ body{
   #contents {
     position: relative;
     transition: .3s;
-  
+    margin-left: 300px;
     background-color: whitesmoke;
   }
   .margin {
@@ -367,7 +249,20 @@ body{
   }
   .statistics .box .info p {color:#BBB}
   
-  
+  /* End statistics */
+  /* Start charts */
+  .charts {
+    margin-top: 25px;
+    color: #BBB
+  }
+  .charts .chart-container {
+    background-color: #313348;
+    padding: 15px;
+  }
+  .charts .chart-container h3 {
+    margin: 0 0 10px;
+    font-size: 17px;
+  }
   
   /* Start users */
   
@@ -474,7 +369,7 @@ body{
   .inf {background-color: #5bc0de}
   
   
-  
+  /* كمية الإمبورتات دى علشان البوتستراب تبطل غتاته وتسيب العناصر اللى متعدله فى حالها طبعا الكلام ده فى كود بن بس */
   
   /* Start bootstrap */
   .navbar-right .dropdown-menu {
@@ -482,7 +377,7 @@ body{
     left: 0 !important;
   }
   .navbar-default {
-    background-color:  #313348 !important;
+    background-color: #6f6486 !important;
     border: none !important;
     border-radius: 0 !important;
     margin: 0 !important
@@ -569,87 +464,3 @@ body{
     .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important}
   }
   
-  
-
-@keyframes click-wave {
-  0% {
-    height: 40px;
-    width: 40px;
-    opacity: 0.35;
-    position: relative;
-  }
-  100% {
-    height: 200px;
-    width: 200px;
-    margin-left: -80px;
-    margin-top: -80px;
-    opacity: 0;
-  }
-}
-
-.option-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  position: relative;
-  top: 13.33333px;
- 
-  height: 40px;
-  width: 40px;
-  transition: all 0.15s ease-out 0s;
-  background: #cbd1d8;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 0.5rem;
-  outline: none;
-  position: relative;
-  z-index: 1000;
-}
-.option-input:hover {
-  background: #9faab7;
-}
-.option-input:checked {
-  background: #40e0d0;
-}
-.option-input:checked::before {
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  content: '✔';
-  display: inline-block;
-  font-size: 26.66667px;
-  text-align: center;
-  line-height: 40px;
-}
-.option-input:checked::after {
-  -webkit-animation: click-wave 0.65s;
-  -moz-animation: click-wave 0.65s;
-  animation: click-wave 0.65s;
-  background: #40e0d0;
-  content: '';
-  display: block;
-  position: relative;
-  z-index: 100;
-}
-.option-input.radio {
-  border-radius: 50%;
-}
-.option-input.radio::after {
-  border-radius: 50%;
-}
-
-body {
-  
-  text-align: center;
-}
-
-@media only screen and (max-width: 600px) {
-  img {
-    width: 50%;
-    height: 7%;
-  }
-}
