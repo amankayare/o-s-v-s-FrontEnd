@@ -22,6 +22,8 @@ import { CandidateorganisationComponent } from './candidateorganisation/candidat
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddcandidateComponent } from './addcandidate/addcandidate.component';
+import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ProfileComponent } from './profile/profile.component';
     CandidateorganisationComponent,
     AboutusComponent,
     ManagevoterComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddcandidateComponent,
+    ManagecandidateComponent
    
   ],
   imports: [

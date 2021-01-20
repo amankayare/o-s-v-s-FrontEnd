@@ -17,6 +17,8 @@ import { VotecandidateComponent } from './votecandidate/votecandidate.component'
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddcandidateComponent } from './addcandidate/addcandidate.component';
+import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,8 @@ const routes: Routes = [
    {path:'E-Bellot/api/aboutus',component:AboutusComponent}, 
    {path:'E-Bellot/api/managevoter',component:ManagevoterComponent}, 
    {path:'E-Bellot/api/profile',component:ProfileComponent}, 
+   {path:'E-Bellot/api/addcandidates',component:AddcandidateComponent}, 
+   {path:'E-Bellot/api/managecandidates',component:ManagecandidateComponent}, 
 ];
 
 @NgModule({
