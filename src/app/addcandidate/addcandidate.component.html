@@ -18,7 +18,7 @@
       <p>Section 1 must be completed for all applications. The claimant is the person who has expenses or is seeking assistance as a result of a crime. If you are filing this application on behalf of someone else, put their information in Section 1 and your information in Section 3.</p>
     </div>
 
-    <form>
+    <form [formGroup]="form">
       <div class="row">
 
        
@@ -27,7 +27,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Full Name</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="Voter's Employee-ID">
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="fullName"  class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
           </div>
         </div>
       
@@ -35,8 +35,8 @@
         <div class="col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
             <label for="exampleInputEmail1">Symbol</label>
-            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
+            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%; 
+            padding: .5rem .75rem;border-radius: .50rem;" type="file" (change)="uploadFile($event)" class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
           </div>
         </div>
         
@@ -44,8 +44,8 @@
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 ">
           <div class="form-group">
             <label for="exampleInputEmail1">Adharcard Number</label>
-            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="Voter's Adharcard Number">
+            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%; 
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="adharNo" class="form-control" id="exampleInputEmail1" placeholder="Voter's Adharcard Number">
           </div>
         </div>
 
@@ -53,10 +53,16 @@
           <div class="form-group">
             <label for="exampleInputEmail1">E-Mail Id</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="email" class="form-control" id="exampleInputEmail1" placeholder="Voter's E-Mail Id">
+            padding: .5rem .75rem;border-radius: .50rem;" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Voter's E-Mail Id">
           </div>
         </div>
-
+        <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
+          <div class="form-group">
+            <!-- <label for="exampleInputEmail1">E-Mail Id</label> -->
+            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
+            padding: .5rem .75rem;border-radius: .50rem;" type="hidden" formControlName="electionId" value="{{electionId}}" class="form-control">
+          </div>
+        </div>
            
 
         
@@ -81,7 +87,7 @@
       
       <hr>
 
-      <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#exitApplication"> Add Candidate </button>
+      <button type="button" class="btn btn-primary btn-large"  data-toggle="modal" data-target="#exitApplication"> Add Candidate </button>
 
       <!-- Exit (Are you sure?) Modal -->
       <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
@@ -95,7 +101,7 @@
             </div>
             <div class="modal-footer">
               <a href="#" role="button" class="btn btn-default btn-large">Don't save</a>
-              <a href="#" role="button" class="btn btn-success btn-large">Save</a>
+              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large">Save</button>
             </div>
           </div>
         </div>
