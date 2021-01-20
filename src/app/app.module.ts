@@ -24,6 +24,8 @@ import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -48,12 +50,14 @@ import { ManagecandidateComponent } from './managecandidate/managecandidate.comp
     ManagevoterComponent,
     ProfileComponent,
     AddcandidateComponent,
-    ManagecandidateComponent
+    ManagecandidateComponent,
+ 
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
