@@ -7,6 +7,6 @@ export class Voter {
     public password : string | undefined;
     public voted : number | undefined;
     public email : string | undefined;
-    public electionId : number | undefined;
+    public employeeId : number | undefined;
     public voterElectionList : Election[] | undefined;
 }

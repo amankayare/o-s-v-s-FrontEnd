@@ -51,14 +51,16 @@ import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpr
     ProfileComponent,
     AddcandidateComponent,
     ManagecandidateComponent,
-    FileformtestpravinComponent,
-   
+    FileformtestpravinComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

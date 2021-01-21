@@ -3,9 +3,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 
-<app-sidebar></app-sidebar>
-<app-navbar></app-navbar>
+<!-- <app-sidebar></app-sidebar> -->
 <section id="contents">
+  
+     
+  
+  <nav class="navbar navbar-default" style="background-color:#252636;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fa fa-align-right"></i>
+          </button>
+          <a class="navbar-brand" href="#">e<span class="main-color">Ballot</span></a>
+        </div>
+       
+      </div>
+    </nav>
 
 
 
@@ -64,9 +77,6 @@
           </div>
         </div>
            
-
-        
-       
       
         <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
           <div class="checkbox">
@@ -101,7 +111,8 @@
             </div>
             <div class="modal-footer">
               <a href="#" role="button" class="btn btn-default btn-large">Don't save</a>
-              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large">Save</button>
+              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large" data-dismiss="modal"
+              >Save</button>
             </div>
           </div>
         </div>
@@ -112,4 +123,3 @@
     </form>
 
   </div> <!-- /Main Content -->
-  
