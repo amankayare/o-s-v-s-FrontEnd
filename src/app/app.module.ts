@@ -25,8 +25,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
 import { ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
 
 
+=======
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpravin.component';
+>>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,13 +56,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     AddcandidateComponent,
     ManagecandidateComponent,
+<<<<<<< HEAD
  
+=======
+    FileformtestpravinComponent,
+>>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     ReactiveFormsModule
+=======
+    ReactiveFormsModule,
+    HttpClientModule
+>>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
   ],
   providers: [],
   bootstrap: [AppComponent]
