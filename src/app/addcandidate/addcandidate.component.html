@@ -3,9 +3,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 
-<app-sidebar></app-sidebar>
-<app-navbar></app-navbar>
+<!-- <app-sidebar></app-sidebar> -->
 <section id="contents">
+  
+     
+  
+  <nav class="navbar navbar-default" style="background-color:#252636;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fa fa-align-right"></i>
+          </button>
+          <a class="navbar-brand" href="#">e<span class="main-color">Ballot</span></a>
+        </div>
+       
+      </div>
+    </nav>
 
 
 
@@ -18,21 +31,16 @@
       <p>Section 1 must be completed for all applications. The claimant is the person who has expenses or is seeking assistance as a result of a crime. If you are filing this application on behalf of someone else, put their information in Section 1 and your information in Section 3.</p>
     </div>
 
-<<<<<<< HEAD
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
-=======
     <form [formGroup]="form">
->>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
       <div class="row">
+
+       
+      
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
             <label for="exampleInputEmail1">Full Name</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-<<<<<<< HEAD
-            padding: .5rem .75rem;border-radius: .50rem;"  type="text" formControlName="fullName" class="form-control" id="exampleInputEmail1" placeholder="Voter's Employee-ID">
-=======
             padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="fullName"  class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
->>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
           </div>
         </div>
       
@@ -40,14 +48,8 @@
         <div class="col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
             <label for="exampleInputEmail1">Symbol</label>
-<<<<<<< HEAD
-            <input type="file" style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" enctype= "multipart/form-data"
- class="form-control" id="exampleInputEmail1" (change)="uploadFile($event)"  placeholder="Voter's Full Name">
-=======
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%; 
             padding: .5rem .75rem;border-radius: .50rem;" type="file" (change)="uploadFile($event)" class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
->>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
           </div>
         </div>
         
@@ -55,13 +57,8 @@
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 ">
           <div class="form-group">
             <label for="exampleInputEmail1">Adharcard Number</label>
-<<<<<<< HEAD
-            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" formControlName="adharNo" type="text" class="form-control" id="exampleInputEmail1" placeholder="Voter's Adharcard Number">
-=======
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%; 
             padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="adharNo" class="form-control" id="exampleInputEmail1" placeholder="Voter's Adharcard Number">
->>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
           </div>
         </div>
 
@@ -69,11 +66,6 @@
           <div class="form-group">
             <label for="exampleInputEmail1">E-Mail Id</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-<<<<<<< HEAD
-            padding: .5rem .75rem;border-radius: .50rem;" formControlName="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Voter's E-Mail Id">
-          </div>
-        </div>
-=======
             padding: .5rem .75rem;border-radius: .50rem;" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Voter's E-Mail Id">
           </div>
         </div>
@@ -85,10 +77,6 @@
           </div>
         </div>
            
-
-        
-       
->>>>>>> 981df9f9b93505105108d0f0e2d4319d3c371f09
       
         <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
           <div class="checkbox">
@@ -105,7 +93,7 @@
               If you are an adult victim and the expenses are for you, skip to <a href="vcp-application-4.html">Section 4</a>. If not, Continue to Section 2
         </div>
       
-      </div>
+      </div><!--/ Row-->
       
       <hr>
 
@@ -123,13 +111,15 @@
             </div>
             <div class="modal-footer">
               <a href="#" role="button" class="btn btn-default btn-large">Don't save</a>
-              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large">Save</button>
+              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large" data-dismiss="modal"
+              >Save</button>
             </div>
           </div>
         </div>
       </div><!-- /Exit (Are you sure?) Modal -->
 
-    </form> -->
+
+      
+    </form>
 
   </div> <!-- /Main Content -->
-  

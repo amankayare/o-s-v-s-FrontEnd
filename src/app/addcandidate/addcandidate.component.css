@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Bungee');
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: whitesmoke;
+  color:#313348 ;
+  text-align: center;
+}
 
 
 * {
-    
+    padding: 0;
+    margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -19,11 +31,11 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
-  body {background-color:  whitesmoke}
+  body {background-color: whitesmoke}
   #contents {
     position: relative;
     transition: .3s;
-    margin-left: 300px;
+  
     background-color: whitesmoke;
   }
   .margin {
@@ -34,8 +46,8 @@
   .side-nav {
     float: left;
     height: 100%;
-    width: 270px;
-    background-color: #2b323f;
+    width: 290px;
+    background-color: #252636;
     color: #CCC;
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
@@ -206,9 +218,9 @@
     color: #CCC;
   }
   .welcome .content {
-    background-color:  whitesmoke;
+    background-color:whitesmoke;
     padding: 15px;
-    margin-top: 100px;
+    margin-top: 25px;
   }
   .welcome h2 {
     font-family: Calibri;
@@ -250,20 +262,7 @@
   }
   .statistics .box .info p {color:#BBB}
   
-  /* End statistics */
-  /* Start charts */
-  .charts {
-    margin-top: 25px;
-    color: #BBB
-  }
-  .charts .chart-container {
-    background-color: #313348;
-    padding: 15px;
-  }
-  .charts .chart-container h3 {
-    margin: 0 0 10px;
-    font-size: 17px;
-  }
+  
   
   /* Start users */
   
@@ -370,7 +369,7 @@
   .inf {background-color: #5bc0de}
   
   
-  /* كمية الإمبورتات دى علشان البوتستراب تبطل غتاته وتسيب العناصر اللى متعدله فى حالها طبعا الكلام ده فى كود بن بس */
+  
   
   /* Start bootstrap */
   .navbar-right .dropdown-menu {
@@ -378,7 +377,7 @@
     left: 0 !important;
   }
   .navbar-default {
-    background-color: #6f6486 !important;
+    background-color:  #313348 !important;
     border: none !important;
     border-radius: 0 !important;
     margin: 0 !important
@@ -464,9 +463,4 @@
     }
     .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important}
   }
-  
-  
-  
-  
-  
   
