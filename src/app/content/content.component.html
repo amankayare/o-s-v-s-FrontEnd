@@ -6,16 +6,15 @@
     <app-navbar></app-navbar>
     <section id="contents">
   
-     
-  
-
+    
         <div class="welcome">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
                 <div class="content">
-                  <h2>Welcome to Dashboard</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur aipisicing elit, sed do eiusmod tempor.</p>
+                  <h2>Welcome to eballot</h2>
+                  <p>Make your decision-making process modern, secure, and effective.
+Our online voting systems let you upgrade from manually counting ballots without sacrificing the integrity of your vote.</p>
                 </div>
               </div>
             </div>
@@ -126,6 +125,8 @@
             </div>
             </section>-->
             
+             
+            
          
 
           <section class='statis text-center'> 
@@ -162,26 +163,37 @@
               </div>
             </div>
           </section>
-          <section class="chrt3">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-9">
-                  <div class="chart-container">
-                    <canvas id="chart3" width="100%"></canvas>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="box">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-    </section>
-
+       
       
-        <script src='http://code.jquery.com/jquery-latest.js'></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-        
+            <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-11">
+                  <div class="chart-container">
+                    <h3>Voting Poll</h3>  
+                    <br>    
+              <google-chart [data]="pieChart"></google-chart>
+            </div>
+            </div>
+     <br>
+             <div class="col-md-4">
+                <div class="chart-container">
+                <br>
+        <h3></h3>      
+    <google-chart [data]="ColumnChart"></google-chart>
+   </div>
+   </div>
+    
+<div class="col-md-7">
+  <div class="chart-container">
+    <br>
+    <h3></h3>      
+<google-chart [data]="lineChart"></google-chart>
+</div>
+</div>
+    </div>
+  
+     </div>
+    
+      
+    </section>     
+    

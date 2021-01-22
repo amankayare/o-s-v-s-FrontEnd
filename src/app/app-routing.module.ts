@@ -19,7 +19,8 @@ import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
-import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpravin.component';
+import { CandidateorganisationComponent } from './candidateorganisation/candidateorganisation.component';
+
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   { path: 'E-Ballot/api/profile', component: ProfileComponent },
   { path: 'E-Ballot/api/addcandidates', component: AddcandidateComponent },
   { path: 'E-Ballot/api/managecandidates', component: ManagecandidateComponent },
-  { path: 'E-Ballot/api/test2', component: FileformtestpravinComponent },
+  { path: 'E-Ballot/api/candidateorganisation', component: CandidateorganisationComponent },
+  
 
 ];
 

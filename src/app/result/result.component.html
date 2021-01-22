@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+<section id="contents">
+    <div class="welcome">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content">
+                <h2>Welcome to eballot</h2>
+                <p>Make your decision-making process modern, secure, and effective.
+Our online voting systems let you upgrade from manually counting ballots without sacrificing the integrity of your vote.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-11">
+              <div class="chart-container">
+                <h3>Voting Poll</h3>  
+                <br>    
+          <google-chart [data]="pieChart"></google-chart>
+        </div>
+        </div>
+<br>
+<div class="col-md-4">
+  <div class="chart-container">
+    <br>
+    <h3></h3>      
+<google-chart [data]="ColumnChart"></google-chart>
+</div>
+</div>
+
+<div class="col-md-7">
+<div class="chart-container">
+<br>
+<h3></h3>      
+<google-chart [data]="lineChart"></google-chart>
+</div>
+</div>
+</div>
+
+ </div>
+
+  
+</section>     
