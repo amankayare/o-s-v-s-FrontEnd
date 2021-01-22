@@ -12,18 +12,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AddcandidateComponent implements OnInit  {
 
-  public electionId:Number | undefined;
   form: FormGroup;
 
   constructor(private router:Router,private http:HttpClient,public fb: FormBuilder) {
 
-    this.electionId = 10;
+   // this.employeeId = 10;
     this.form = this.fb.group({
       fullName: [''],
       email: [''],
       adharNo:[''],
       symbol:[null],
-      electionId:['']
+      employeeId:['']
 
     })
 
@@ -47,7 +46,7 @@ uploadFile(event: any) {
     formData.append("fullName", this.form.get("fullName")?.value);
     formData.append("email", this.form.get("email")?.value);
     formData.append("adharNo", this.form.get("adharNo")?.value);
-    formData.append("electionId", this.electionId);
+    formData.append("employeeId", this.form.get("employeeId")?.value);
     formData.append("symbol", this.form.get("symbol")?.value);
 
 

@@ -36,7 +36,13 @@
     <form [formGroup]="form">
       <div class="row">
 
-       
+        <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Employee ID</label>
+            <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="employeeId"  class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
+          </div>
+        </div>
       
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
@@ -75,7 +81,7 @@
           <div class="form-group">
             <!-- <label for="exampleInputEmail1">E-Mail Id</label> -->
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="hidden" formControlName="electionId" value="{{electionId}}" class="form-control">
+            padding: .5rem .75rem;border-radius: .50rem;" type="hidden" formControlName="electionId"  class="form-control">
           </div>
         </div>
            
@@ -99,9 +105,9 @@
       <hr>
       <br>
 
-      <button type="button" class="btn btn-primary btn-large"  data-toggle="modal" data-target="#exitApplication"> Submit </button>
 
-      <!-- Exit (Are you sure?) Modal -->
+      <button type="button" class="btn btn-primary btn-large"  data-toggle="modal" (click)="submitForm()" data-target="#exitApplication"> Submit </button>
+     <!-- Exit (Are you sure?) Modal -->
       <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -111,10 +117,9 @@
             <div class="modal-body">
               Do you want to save this application for later?
             </div>
-            <div class="modal-footer">
-              <a href="#" role="button" data-dismiss="modal" class="btn btn-default btn-large">Don't save</a>
-              <button type="button" role="button" (click)="submitForm()" class="btn btn-success btn-large" data-dismiss="modal"
-              >Save</button>
+            <div class="modal-footer">          
+                <a href="#" role="button" data-dismiss="modal" class="btn btn-default btn-large">Don't save</a>
+              <button type="button" role="button"  class="btn btn-success btn-large" data-dismiss="modal">Save</button>
             </div>
           </div>
         </div>
