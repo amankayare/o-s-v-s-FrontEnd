@@ -24,10 +24,10 @@
             <thead>
               <tr>
                 <th>Employee-ID</th>
-                <th>Full Name</th>
-                <th>E-Mail</th>
+                <th>Full Name</th>                
                 <th>Adharcard Number</th>
-             <th>Choose Voter</th>
+                <th>E-Mail</th>
+               <th>Choose Voter</th>
               </tr>
             </thead>
           </table>
@@ -35,17 +35,35 @@
         <div class="tbl-content">
           <table>
             <tbody>
-              <tr>
-                <td>AAC</td>
-                <td>AUSTRALIAN COMPANY </td>
-                <td>$1.38</td>
-                <td>$1.38</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-                
-              </tr>
-               
 
+            <tr *ngFor="let voter of listOfVoter">
+              <td>
+                  
+                {{voter.employeeId}}
+              
+            </td>
+            <td>
+              
+                {{voter.fullName}}
+             
+            </td>
+            <td>
+              
+                {{voter.adharNo}} 
+              
+            </td>
+            <td>
+              
+                {{voter.email}} 
+              
+            </td>
+               
+            <td>
+              <input type="checkbox" class="largerCheckbox"
+                    name="checkBox2" >
+
+            </td>
+          </tr>
             </tbody>
           </table>
         </div>

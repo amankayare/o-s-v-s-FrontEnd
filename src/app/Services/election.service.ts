@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Election } from '../Entities/election';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ElectionService {
 
+  election : Election = new Election();
   constructor(private http:HttpClient) { }
 
   addElection(election : Election) : Observable<String>{

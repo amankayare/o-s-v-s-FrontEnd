@@ -25,8 +25,10 @@ import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ElectionService } from './Services/election.service';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     Ng2GoogleChartsModule,
-  
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

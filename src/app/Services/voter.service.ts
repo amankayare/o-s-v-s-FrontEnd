@@ -33,8 +33,17 @@ export class VoterService {
     return this.http.delete<void>("http://localhost:8080/E-Ballot/api/removeVoter/"+id);
   }
 
-  modifyVoter(voter : Voter):Observable<String>{
-    return this.http.put<String>("http://localhost:8080/E-Ballot/api/modifyVoter/",voter);
+  modifyVoter(fullName:any,email:any,adharNo:any,employeeId:any,voterId:any){
+   // modifyVoter(voter : Voter){
+    const body={
+    fullName:fullName,
+    email:email,
+    adharNo:adharNo,
+    employeeId:employeeId,
+    voterId:voterId
+    }
+
+    return this.http.put("http://localhost:8080/E-Ballot/api/modifyVoter",body);
   }
 
   // goToPoll(electionId:number , voterId :number , decrytFile : File):Observable<String>{

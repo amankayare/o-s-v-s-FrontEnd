@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Candidate } from '../Entities/candidate';
 import { Voter } from '../Entities/voter';
 import { VoterService } from '../Services/voter.service';
 
@@ -12,40 +14,116 @@ export class ManagevoterComponent implements OnInit {
 
   listOfVoter: Voter[] | undefined;
 
- voter: Voter= new Voter();
+  voterForm!: FormGroup;
 
-  constructor(private http:HttpClient,private voterService:VoterService) { }
+  candidate: Candidate = new Candidate();
+  
+  voter : Voter = new Voter();
+
+  // this.voterForm = this.fb.group({
+      
+  //   fullName: [''],
+  //   email: [''],
+  //   adharNo:[''],
+  //   password:[''],
+  //   employeeId:['']
+  // })
+
+    fullName: String | undefined 
+    email:String | undefined 
+    adharNo:number | undefined
+    password:String | undefined
+    employeeId:String | undefined
+    voterId:number | undefined
+
+    // public voterJson=[
+    //   {
+    //     fullName:'',
+    //     email:'',
+    //     adharNo:0,
+    //     password:'',
+    //     employeeI:'',
+    //     voterId:''
+    //   }
+    // ];
+
+    public listVoter=[] ;
+    voterData: Voter | undefined;
+
+  constructor(private http:HttpClient,private voterService:VoterService,private fb:FormBuilder) {
+
+
+   }
 
 
   
   allVoter(){
     this.voterService.getAllVoter().subscribe((res)=>{
       this.listOfVoter=res;
-      console.log("all voter");
-    })
+      console.log(res);
+      })
   }
 
   ngOnInit(): void {
     this.allVoter();
   }
 
- deleteVoter(id :  number){
-   this.voterService.removeVoter(id).subscribe((res)=>{
-     console.log(res);
-     this.allVoter();
-   })
+  load(){
+    this.ngOnInit();
+  }
+
+public id : any;
+  deleteVoterById(id : any){
+     this.id=id;
+  }
+
+ async deleteVoter(){
+   console.log(" id "+this.id)
+      var cheeck= await this.voterService.removeVoter(this.id).toPromise();
+      if(cheeck!=null){
+        this.load();
+        alert("Record deleted")
+      }
+         
  }
 
- updateVoter(id : number){
-   
-   this.voterService.getVoter(id).subscribe((res)=>{
-    console.log("get voter");
-       this.voter=res;
-   })
-   this.voterService.modifyVoter(this.voter).subscribe((res)=>{
-      console.log("update voter");
-      this.allVoter();
-   })
- }
+
+  async updateVoter(id : number){
+
+
+ this.voter =  await this.voterService.getVoter(id).toPromise();
+
+
+        this.voterId=this.voter.voterId
+        console.log(" voter Id "+this.voter.voterId)
+        this.fullName=this.voter.fullName
+        this.email=this.voter.email
+        this.adharNo=this.voter.adharNo
+        this.password=this.voter.password
+        this.employeeId=this.voter.employeeId
+        
+}
+
+
+
+  async updateVoterDetails(employeeId : any,fullName : any ,adharNo : any ,email : any,voterId : any){
+  console.log(fullName);
+
+ 
+     this.employeeId=employeeId,
+     this.fullName=fullName,
+     this.adharNo=adharNo,
+     this.email=email
+     this.voterId=voterId
+ 
+
+    var check= await this.voterService.modifyVoter(this.fullName,this.email,this.adharNo,this.employeeId,this.voterId).toPromise();
+     if(check!=null){
+      this.load();
+      alert("Updated record");
+     }
+        
+}
+
 
 }

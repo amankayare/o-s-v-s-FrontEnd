@@ -33,14 +33,14 @@
     </div>
   
 
-    <form>
+    <form #ElectionForm="ngForm" (ngSubmit)="addElection()">
       <div class="row">
 
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
             <label for="exampleInputEmail1">CIN Number</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="CIN Number">
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" name="cin" [(ngModel)]="Election.cin" class="form-control" id="exampleInputEmail1" placeholder="CIN Number">
           </div>
         </div>
       
@@ -50,7 +50,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Election Name</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="Election Name">
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" name="electionName" [(ngModel)]="Election.electionName" class="form-control" id="exampleInputEmail1" placeholder="Election Name">
           </div>
         </div>
         
@@ -59,7 +59,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Start Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="Start Date Of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" name="startDate" [(ngModel)]="Election.startDate" class="form-control" id="exampleInputEmail1" placeholder="Start Date Of Election">
           </div>
         </div>
 
@@ -67,7 +67,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">End Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="End Date of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" name="endDate" [(ngModel)]="Election.endDate" class="form-control" id="exampleInputEmail1" placeholder="End Date of Election">
           </div>
         </div>
 
@@ -77,12 +77,10 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Result Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="Result Date of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" name="resultDate" [(ngModel)]="Election.resultDate" id="exampleInputEmail1" placeholder="Result Date of Election">
           </div>
         </div>
-      
-       
-      
+
         <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
           <div class="checkbox">
             <label>
@@ -120,7 +118,7 @@
     </form>
 
   </div> <!-- /Main Content -->
-  
+
 
       
 </section>
