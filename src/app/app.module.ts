@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,9 +25,11 @@ import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpravin.component';
+import { ElectionService } from './Services/election.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,14 +54,18 @@ import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpr
     ProfileComponent,
     AddcandidateComponent,
     ManagecandidateComponent,
-    FileformtestpravinComponent,
-   
+     
+  
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2GoogleChartsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

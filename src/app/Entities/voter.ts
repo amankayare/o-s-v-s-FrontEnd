@@ -1,12 +1,12 @@
 import { Election } from "./election";
 
 export class Voter {
-    public voterId : number | undefined;
-    public fullName : string | undefined;
+    public voterId : number | any;
+    public fullName : String | undefined;
     public adharNo : number | undefined;
-    public password : string | undefined;
+    public password : String | undefined;
     public voted : number | undefined;
-    public email : string | undefined;
-    public electionId : number | undefined;
+    public email : String | undefined;
+    public employeeId : String | undefined;
     public voterElectionList : Election[] | undefined;
 }

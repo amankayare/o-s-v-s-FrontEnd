@@ -19,30 +19,32 @@ import { ManagevoterComponent } from './managevoter/managevoter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
-import { FileformtestpravinComponent } from './fileformtestpravin/fileformtestpravin.component';
+import { CandidateorganisationComponent } from './candidateorganisation/candidateorganisation.component';
+
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'E-Bellot/api/admin', component: ContentComponent },
-  { path: 'E-Bellot/api/navbar', component: NavbarComponent },
-  { path: 'E-Bellot/api/sidebar', component: SidebarComponent },
-  { path: 'E-Bellot/api/createballot', component: CreateballotComponent },
-  { path: 'E-Bellot/api/addvoter', component: AddvoterComponent },
-  { path: 'E-Bellot/api/footer', component: FooterComponent },
-  { path: 'E-Bellot/api/header', component: HeaderComponent },
-  { path: 'E-Bellot/api/login', component: LoginComponent },
-  { path: 'E-Bellot/api/candidatelist', component: ListofcandidateComponent },
-  { path: 'E-Bellot/api/voterlist', component: ListofvoterComponent },
-  { path: 'E-Bellot/api/voterdashboard', component: VoterdashboardComponent },
-  { path: 'E-Bellot/api/result', component: ResultComponent },
-  { path: 'E-Bellot/api/votecandidate', component: VotecandidateComponent },
-  { path: 'E-Bellot/api/aboutus', component: AboutusComponent },
-  { path: 'E-Bellot/api/managevoter', component: ManagevoterComponent },
-  { path: 'E-Bellot/api/profile', component: ProfileComponent },
-  { path: 'E-Bellot/api/addcandidates', component: AddcandidateComponent },
-  { path: 'E-Bellot/api/managecandidates', component: ManagecandidateComponent },
-  { path: 'E-Bellot/api/test2', component: FileformtestpravinComponent },
+  { path: 'E-Ballot/api/admin', component: ContentComponent },
+  { path: 'E-Ballot/api/navbar', component: NavbarComponent },
+  { path: 'E-Ballot/api/sidebar', component: SidebarComponent },
+  { path: 'E-Ballot/api/createballot', component: CreateballotComponent },
+  { path: 'E-Ballot/api/addvoter', component: AddvoterComponent },
+  { path: 'E-Ballot/api/footer', component: FooterComponent },
+  { path: 'E-Ballot/api/header', component: HeaderComponent },
+  { path: 'E-Ballot/api/login', component: LoginComponent },
+  { path: 'E-Ballot/api/candidatelist', component: ListofcandidateComponent },
+  { path: 'E-Ballot/api/voterlist', component: ListofvoterComponent },
+  { path: 'E-Ballot/api/voterdashboard', component: VoterdashboardComponent },
+  { path: 'E-Ballot/api/result', component: ResultComponent },
+  { path: 'E-Ballot/api/votecandidate', component: VotecandidateComponent },
+  { path: 'E-Ballot/api/aboutus', component: AboutusComponent },
+  { path: 'E-Ballot/api/managevoter', component: ManagevoterComponent },
+  { path: 'E-Ballot/api/profile', component: ProfileComponent },
+  { path: 'E-Ballot/api/addcandidates', component: AddcandidateComponent },
+  { path: 'E-Ballot/api/managecandidates', component: ManagecandidateComponent },
+  { path: 'E-Ballot/api/candidateorganisation', component: CandidateorganisationComponent },
+  
 
 ];
 

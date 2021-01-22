@@ -334,21 +334,17 @@ body {background-color: whitesmoke}
   text-align: right;
   border-radius: 50%;
 }
+/* @media only screen and (max-width: 1000px) {
+  .graph-chart {
+    padding-left: 50px;
+  }
+  } */
 
-/*chart*/
-.chrt3 {
-  padding-bottom: 50px;
-}
-.chrt3 .chart-container {
-  height: 350px;
-  padding: 15px;
-  margin-top: 25px;
-}
-.chrt3 .box {
-  padding: 15px;
-}
-
-
+/* @media only screen and (max-width: 600px) {
+  .graph-chart {
+    padding-left: 15px;
+  }
+  } */
 
 
 
@@ -463,3 +459,4 @@ body {background-color: whitesmoke}
   }
   .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important}
 }
+

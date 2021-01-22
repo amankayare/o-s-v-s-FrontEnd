@@ -16,7 +16,7 @@
           <span class="sr-only">(current)</span>
         </span>
       </li>
-      <li class="page-item"><a class="page-link" href="E-Bellot/api/candidatelist">Select Candidates for Election</a></li>
+      <li class="page-item"><a class="page-link" href="E-Ballot/api/candidatelist">Select Candidates for Election</a></li>
      
       <!-- <li class="page-item disabled"> -->
         <li class="page-item"><a class="page-link" [routerLink]="['/voterlist']">Select Voters of Election</a></li>
@@ -26,18 +26,21 @@
             
       
     <div class="alert alert-info" role="alert">
-      <h4>A Separate application  must be filed for each person seeking assistance.</h4>
-      <p>Section 1 must be completed for all applications. The claimant is the person who has expenses or is seeking assistance as a result of a crime. If you are filing this application on behalf of someone else, put their information in Section 1 and your information in Section 3.</p>
+      <h3>Thank you for choosing e-ballot.</h3>
+      
+      <h4>Here are some rules you need to follow for Creating the ballot.</h4><p>1.You are allowed to upload file followed by png extention only. Files with jpg/jifi is not allowed. </p>
+      <p>2. In the  </p>
     </div>
+  
 
-    <form>
+    <form #ElectionForm="ngForm" (ngSubmit)="addElection()">
       <div class="row">
 
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
           <div class="form-group">
             <label for="exampleInputEmail1">CIN Number</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="CIN Number">
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" name="cin" [(ngModel)]="Election.cin" class="form-control" id="exampleInputEmail1" placeholder="CIN Number">
           </div>
         </div>
       
@@ -47,7 +50,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Election Name</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" placeholder="Election Name">
+            padding: .5rem .75rem;border-radius: .50rem;" type="text" name="electionName" [(ngModel)]="Election.electionName" class="form-control" id="exampleInputEmail1" placeholder="Election Name">
           </div>
         </div>
         
@@ -56,7 +59,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Start Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="Start Date Of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" name="startDate" [(ngModel)]="Election.startDate" class="form-control" id="exampleInputEmail1" placeholder="Start Date Of Election">
           </div>
         </div>
 
@@ -64,7 +67,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">End Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="End Date of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" name="endDate" [(ngModel)]="Election.endDate" class="form-control" id="exampleInputEmail1" placeholder="End Date of Election">
           </div>
         </div>
 
@@ -74,25 +77,21 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Result Date</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" id="exampleInputEmail1" placeholder="Result Date of Election">
+            padding: .5rem .75rem;border-radius: .50rem;" type="date" class="form-control" name="resultDate" [(ngModel)]="Election.resultDate" id="exampleInputEmail1" placeholder="Result Date of Election">
           </div>
         </div>
-      
-       
-      
+
         <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="">
-              Check This Box if You Are a Parent/Guardian Applying on Behalf of a Minor Witness to Violent Crime. Minor witnesses are eligible for mental health treatment only. Claimant is under age 18, a witness in close proximity to a violent crime, but is neither the crime victim nor related to the victim. Provide available victim, crime or other information in remaining sections. 
-            </label>
+            Remember once you sumbit the form you are not allowed to make any further changes. So make sure that
+          you enter the correct details.</label>
           </div>
         </div>
-       
       
       </div><!--/ Row-->
       
-      <hr>
+      
 
       <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#exitApplication">Create Ballot</button>
 
@@ -107,8 +106,8 @@
               Do you want to save this application for later?
             </div>
             <div class="modal-footer">
-              <a href="vcp.html" role="button" class="btn btn-default btn-large">Don't save</a>
-              <a href="vcp.html" role="button" class="btn btn-success btn-large">Save</a>
+              <a data-dismiss="modal" role="button" class="btn btn-default btn-large">Don't save</a>
+              <a href="E-Ballot/api/candidatelist"  role="button" class="btn btn-success btn-large">Save</a>
             </div>
           </div>
         </div>
@@ -119,7 +118,7 @@
     </form>
 
   </div> <!-- /Main Content -->
-  
+
 
       
 </section>

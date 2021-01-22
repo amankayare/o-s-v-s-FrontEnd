@@ -1,46 +1,43 @@
+
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
 @Component({
   selector: 'app-addcandidate',
   templateUrl: './addcandidate.component.html',
   styleUrls: ['./addcandidate.component.css']
 })
-export class AddcandidateComponent implements OnInit {
+export class AddcandidateComponent implements OnInit  {
 
   form: FormGroup;
-  public electionId:Number
-  ngOnInit(): void {
-  }
 
+  constructor(private router:Router,private http:HttpClient,public fb: FormBuilder) {
 
-
-  constructor(private http: HttpClient, public fb: FormBuilder) {
-
-    this.electionId = 10;
+   // this.employeeId = 10;
     this.form = this.fb.group({
       fullName: [''],
       email: [''],
-      adharNo: [''],
-      symbol: [],
-      electionId: ['']
+      adharNo:[''],
+      symbol:[null],
+      employeeId:['']
 
     })
 
+}
 
-  }
+ngOnInit() { }
 
+uploadFile(event: any) {
+  const file =(event.target as HTMLInputElement).files![0];
 
-
-  uploadFile(event: any) {
-    console.log("upload File");
-    const file = (event.target as HTMLInputElement).files![0];
-
-    this.form.patchValue({
-      symbol: file
-    });
-    this.form.get("symbol")?.updateValueAndValidity();
-  }
+  this.form.patchValue({
+    symbol: file
+  });
+  this.form.get("symbol")?.updateValueAndValidity();
+}
 
   submitForm() {
     console.log("submit form");
@@ -49,7 +46,7 @@ export class AddcandidateComponent implements OnInit {
     formData.append("fullName", this.form.get("fullName")?.value);
     formData.append("email", this.form.get("email")?.value);
     formData.append("adharNo", this.form.get("adharNo")?.value);
-    formData.append("electionId", this.electionId);
+    formData.append("employeeId", this.form.get("employeeId")?.value);
     formData.append("symbol", this.form.get("symbol")?.value);
 
 
@@ -58,8 +55,6 @@ export class AddcandidateComponent implements OnInit {
     headers.append("Content-Type", "application/json");
     headers.append("Authorization", "my_token");
     headers.append("responseType", "text");
-
-    
 
     this.http.post('http://localhost:8080/E-Ballot/api/addCandidate', formData, { headers: headers }).subscribe(
       (response) => console.log(response),

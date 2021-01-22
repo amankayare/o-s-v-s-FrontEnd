@@ -6,6 +6,7 @@
 <app-sidebar></app-sidebar>
 <app-navbar></app-navbar>
 
+
 <section id="contents">
    
         <!--for demo wrap-->
@@ -25,9 +26,11 @@
           <table>
             <thead>
               <tr>
+                <th>Employee ID</th>
                 <th>Full Name</th>
-                <th>E-Mail</th>
+                <th>AdharCard Number</th>
                 <th>Symbol</th>
+                <th>E-Mail</th>
              <th>Choose Candidate</th>
               </tr>
             </thead>
@@ -36,70 +39,40 @@
         <div class="tbl-content">
           <table>
             <tbody>
-              <tr>
-                <td>AAC</td>
-                <td>AUSTRALIAN COMPANY </td>
-                <td>$1.38</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-                
-              </tr>
-              <tr>
-                <td>AAD</td>
-                <td>AUSENCO</td>
-                <td>$2.38</td>
-              <td> <input type="checkbox" class="largerCheckbox"
-                name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>AAX</td>
-                <td>ADELAIDE</td>
-                <td>$3.22</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>XXD</td>
-                <td>ADITYA BIRLA</td>
-                <td>$1.02</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>AAC</td>
-                <td>AUSTRALIAN COMPANY </td>
-                <td>$1.38</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>AAD</td>
-                <td>AUSENCO</td>
-                <td>$2.38</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>AAX</td>
-                <td>ADELAIDE</td>
-                <td>$3.22</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>XXD</td>
-                <td>ADITYA BIRLA</td>
-                <td>$1.02</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
-              <tr>
-                <td>AAC</td>
-                <td>AUSTRALIAN COMPANY </td>
-                <td>$1.38</td>
-                <td> <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" > </td>
-              </tr>
+              <tr  *ngFor="let candidate of listOfCandidate" [formGroup]="form">
+                <td>
+                  <div class="form-group">
+                   {{candidate.employeeId}}
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    {{candidate.fullName}} 
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    {{candidate.adharNo}}
+                  </div>
+                </td>
+                <td>
+                  <div  class="form-group" >
+                    <img src=`{{candidate.symbol}}` width="100%" height="100%" alt="Image" />
+                        
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    {{candidate.email}}
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <input type="checkbox" class="largerCheckbox"
+                    name="checkBox2" >
+                  </div>
+                </td>
+              </tr>			
              
             </tbody>
           
@@ -114,13 +87,31 @@
               <li class="page-item active" aria-current="page">
                 <a class="page-link" >Select Candidates for Election <span class="sr-only">(current)</span></a>
               </li>
-              <li class="page-item"><a class="page-link" href="E-Bellot/api/voterlist">Select Voters for Election </a></li>
+              <li class="page-item"><a class="page-link" href="E-Ballot/api/voterlist">Select Voters for Election </a></li>
              &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-danger btn-large" data-toggle="modal" data-target="#exitApplication">
                   Add selected Candidates </button>
 
             </ul>
           </nav>
          
+        <!-- Exit (Are you sure?) Modal -->
+        <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" >&times;</span></button>
+                                   </div>
+              <div class="modal-body">
+                Do you want to save this application for later?
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" role="button" class="btn btn-default btn-large">Don't save</a>
+                <a href="E-Ballot/api/voterlist" role="button" class="btn btn-success btn-large">Save</a>
+              </div>
+            </div>
+          </div>
+        </div><!-- /Exit (Are you sure?) Modal -->
+  
       
 </section>
 
