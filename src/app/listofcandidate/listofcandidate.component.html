@@ -69,7 +69,7 @@
                 <td>
                   <div class="form-group">
                     <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" >
+                    name="checkBox2" (click)="getCandidate(candidate.candidateId)"  >
                   </div>
                 </td>
               </tr>			
@@ -88,14 +88,14 @@
                 <a class="page-link" >Select Candidates for Election <span class="sr-only">(current)</span></a>
               </li>
               <li class="page-item"><a class="page-link" href="E-Ballot/api/voterlist">Select Voters for Election </a></li>
-             &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-danger btn-large" data-toggle="modal" data-target="#exitApplication">
+             &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-danger btn-large" (click)="navigateToVoterList()" data-target="#exitApplication">
                   Add selected Candidates </button>
 
             </ul>
           </nav>
          
         <!-- Exit (Are you sure?) Modal -->
-        <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
+        <!-- <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -110,7 +110,8 @@
               </div>
             </div>
           </div>
-        </div><!-- /Exit (Are you sure?) Modal -->
+        </div> -->
+        <!-- /Exit (Are you sure?) Modal -->
   
       
 </section>
