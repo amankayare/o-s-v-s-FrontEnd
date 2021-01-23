@@ -11,6 +11,7 @@ import { Election } from '../Entities/election';
 export class ElectionService {
 
   election : Election = new Election();
+  
   constructor(private http:HttpClient) { }
 
   addElection(election : Election) : Observable<String>{

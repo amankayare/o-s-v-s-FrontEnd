@@ -21,33 +21,34 @@ Our online voting systems let you upgrade from manually counting ballots without
       <br>
       
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-11">
+      
+         <div *ngFor="let item of electionList">
+          <div class="row">
+            <div class="col-md-11">
               <div class="chart-container">
-                <h3>Voting Poll</h3>  
-                <br>    
-          <google-chart [data]="pieChart"></google-chart>
-        </div>
-        </div>
-<br>
-<div class="col-md-4">
-  <div class="chart-container">
-    <br>
-    <h3></h3>      
-<google-chart [data]="ColumnChart"></google-chart>
-</div>
-</div>
+                <h3><b>Voting Poll</b> <br><br> <span style="font-size: 25px;">{{item.electionName}}</span> </h3>
+                <br>
+                <google-chart [data]="pieChart"></google-chart>
+              </div>
+            </div>
+            <br>
+            <div class="col-md-4">
+              <div class="chart-container">
+                <br>
+                <h3></h3>
+                <google-chart [data]="ColumnChart"></google-chart>
+              </div>
+            </div>
+          
+            <div class="col-md-7">
+              <div class="chart-container">
+                <br>
+                <h3></h3>
+                <google-chart [data]="lineChart"></google-chart>
+              </div>
+            </div>
+          </div>
+         </div>
 
-<div class="col-md-7">
-<div class="chart-container">
-<br>
-<h3></h3>      
-<google-chart [data]="lineChart"></google-chart>
-</div>
-</div>
-</div>
-
- </div>
-
-  
+     </div>
 </section>     

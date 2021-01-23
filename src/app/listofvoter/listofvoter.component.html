@@ -60,7 +60,7 @@
                
             <td>
               <input type="checkbox" class="largerCheckbox"
-                    name="checkBox2" >
+                    name="checkBox2" (click)="getVoter(voter.voterId)" >
 
             </td>
           </tr>
@@ -79,13 +79,13 @@
               <li class="page-item active" aria-current="page">
                 <a class="page-link" >Select Voters for Election <span class="sr-only">(current)</span></a>
               </li>
-              &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-danger btn-large" data-toggle="modal" data-target="#exitApplication">
-                Add selected Voters </button>
+              &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" (click)="addAllElectionDetails()" class="btn btn-danger btn-large" data-toggle="modal" data-target="#exitApplication">
+                submit </button>
 
             </ul>
           </nav>
       <!-- Exit (Are you sure?) Modal -->
-      <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
+      <!-- <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -100,7 +100,8 @@
             </div>
           </div>
         </div>
-      </div><!-- /Exit (Are you sure?) Modal -->
+      </div> -->
+      <!-- /Exit (Are you sure?) Modal -->
       
 </section>
 
