@@ -33,7 +33,7 @@
     </div>
   
 
-    <form #ElectionForm="ngForm" (ngSubmit)="addElection()">
+    <form #ElectionForm="ngForm" >
       <div class="row">
 
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
@@ -93,10 +93,10 @@
       
       
 
-      <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#exitApplication">Create Ballot</button>
+      <button type="button" class="btn btn-primary btn-large" data-target="#exitApplication" (click)="addElection()" >Create Ballot</button>
 
       <!-- Exit (Are you sure?) Modal -->
-      <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
+      <!-- <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -107,11 +107,12 @@
             </div>
             <div class="modal-footer">
               <a data-dismiss="modal" role="button" class="btn btn-default btn-large">Don't save</a>
-              <a href="E-Ballot/api/candidatelist"  role="button" class="btn btn-success btn-large">Save</a>
+              <a routerLink="E-Ballot/api/candidatelist"  role="button" class="btn btn-success btn-large">Save</a>
             </div>
           </div>
         </div>
-      </div><!-- /Exit (Are you sure?) Modal -->
+      </div> -->
+      <!-- /Exit (Are you sure?) Modal -->
 
 
       
