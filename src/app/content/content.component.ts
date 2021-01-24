@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { GoogleChartInterface } from 'ng2-google-charts';
 import { Election } from '../Entities/election';
 import { CandidateElectionEarnedServiceService } from '../Services/candidate-election-earned-service.service';
@@ -15,7 +18,7 @@ export class ContentComponent implements OnInit {
 
   electionCount: number |  any;
   
- 
+  adhar:any;
 
   public pieChart: GoogleChartInterface | any;
 
@@ -29,7 +32,7 @@ export class ContentComponent implements OnInit {
   candidateName: string | any;
   candidateLenght: number | any;
 
-  constructor(private electionService:ElectionService,private candidateElectionEarnedService:CandidateElectionEarnedServiceService) { }
+  constructor(private electionService:ElectionService,private candidateElectionEarnedService:CandidateElectionEarnedServiceService,private router:Router,private http:HttpClient, public fb: FormBuilder) { }
 
 
   async recentElection(){
@@ -138,6 +141,15 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.recentElection();
+   // this.allElection();
+
+    
+    if (!sessionStorage.getItem('username')) {
+      this.router.navigate(['/']);
+    } else {
+      this.adhar = sessionStorage.getItem('username');
+    }
+
   }
 
 }

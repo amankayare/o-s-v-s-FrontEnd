@@ -20,6 +20,7 @@ import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
 import { CandidateorganisationComponent } from './candidateorganisation/candidateorganisation.component';
 import { LoginComponent } from './login/login.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 
 
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'E-Ballot/api/addcandidates', component: AddcandidateComponent },
   { path: 'E-Ballot/api/managecandidates', component: ManagecandidateComponent },
   { path: 'E-Ballot/api/candidateorganisation', component: CandidateorganisationComponent },
-  
+  { path: 'E-Ballot/api/8888', component: AdminloginComponent },
+
 
 ];
 

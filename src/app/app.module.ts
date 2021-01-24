@@ -31,7 +31,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ElectionService } from './Services/election.service';
 import { LoginComponent } from './login/login.component';
 import { SearchPipe } from './Pipes/search.pipe';
-import { CommonModule } from '@angular/common';
+
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+
+
 
 @NgModule({
   declarations: [
@@ -57,8 +60,11 @@ import { CommonModule } from '@angular/common';
     AddcandidateComponent,
     ManagecandidateComponent,
     LoginComponent,
-    SearchPipe
- 
+    SearchPipe,
+    AdminloginComponent
+  
+
+
 
   ],
   imports: [
@@ -68,7 +74,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     Ng2GoogleChartsModule,
     FormsModule,
-    CommonModule,
+    
     NgxSpinnerModule,
     NgCircleProgressModule.forRoot({
       // set defaults here

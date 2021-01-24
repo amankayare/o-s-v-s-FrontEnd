@@ -1,38 +1,40 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from "@angular/router";
 import { Login } from '../Entities/login';
-import { LoginService } from '../Services/login.service';
+import { AdminService } from '../Services/admin.service';
+import { Admin } from '../Entities/admin';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-adminlogin',
+  templateUrl: './adminlogin.component.html',
+  styleUrls: ['./adminlogin.component.css']
 })
-export class LoginComponent implements OnInit {
+
+
+
+export class AdminloginComponent implements OnInit {
   container: any;
-  electionId: any;
+  username: any;
   form: FormGroup;
-  login: Promise<Login> | undefined;
+  login: Promise<Admin> | undefined;
   public invalidCredential = false;
   public message :string | undefined;
 
-  constructor(private loginService: LoginService, private mainRouter: Router, private route: ActivatedRoute, private router: Router, private http: HttpClient, public fb: FormBuilder) {
+  constructor(private adminService: AdminService, private mainRouter: Router, private route: ActivatedRoute, private router: Router, private http: HttpClient, public fb: FormBuilder) {
 
-    this.electionId = this.route.snapshot.paramMap.get('id');
 
     this.form = this.fb.group({
 
-      adharNo: [''],
+      username: [''],
       password: [''],
-      electionId: ['']
 
     })
   }
 
   ngOnInit(): void {
-    console.log(this.electionId);
   }
   toggleForm() {
     this.container = document.querySelector('.container');
@@ -44,11 +46,10 @@ export class LoginComponent implements OnInit {
     console.log("submit form");
     console.log(this.form.value)
     var formData: any = new FormData();
-    formData.append("adharNo", this.form.get("adharNo")?.value);
+    formData.append("username", this.form.get("username")?.value);
     formData.append("password", this.form.get("password")?.value);
-    formData.append("electionId", this.electionId);
     console.log("FORM DATA", formData);
-
+    this.username = this.form.get("username")?.value;
 
     let headers = new HttpHeaders();
     headers.append("Accept", "application/json");
@@ -56,15 +57,18 @@ export class LoginComponent implements OnInit {
     headers.append("Authorization", "my_token");
     headers.append("responseType", "text");
 
-    this.loginService.loginRequest(formData, headers).subscribe((res) => {
+    this.adminService.loginRequest(formData, headers).subscribe((res) => {
       console.log(res)
+     
+    
+     
       if (res.status == "SUCCESS") {
         console.log("successfull login");
         // mode:number = res.adharNo;
         //sessionStorage.setItem('adhar',res.adharNo);
-        sessionStorage.setItem('electionId',this.electionId);
-        sessionStorage.setItem('voterId',res.voterId);
-        this.router.navigate(['E-Ballot/api/voterdashboard']);
+        sessionStorage.setItem('username',this.username);
+       
+        this.router.navigate(['E-Ballot/api/admin']);
 
 
       
@@ -77,6 +81,9 @@ export class LoginComponent implements OnInit {
 
       }
     });
+
+
+
 
   }
 

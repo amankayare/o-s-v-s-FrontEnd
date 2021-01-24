@@ -1,5 +1,7 @@
 export class Admin {
-    public adminId : number | undefined;
-    public userName : string | undefined;
-    public password : string | undefined;
+    public adminId : number | any;
+    public userName : string | any;
+    public password : string | any;
+    public status : string | any;
+    public message : string | any;
 }
