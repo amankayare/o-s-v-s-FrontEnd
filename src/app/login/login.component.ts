@@ -12,7 +12,7 @@ import { LoginService } from '../Services/login.service';
 })
 export class LoginComponent implements OnInit {
   container: any;
-  electionId: any;
+  electionId: String | any;
   form: FormGroup;
   login: Promise<Login> | undefined;
   public invalidCredential = false;
@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     formData.append("adharNo", this.form.get("adharNo")?.value);
     formData.append("password", this.form.get("password")?.value);
     formData.append("electionId", this.electionId);
+    console.log(this.electionId);
     console.log("FORM DATA", formData);
 
 
@@ -73,8 +74,6 @@ export class LoginComponent implements OnInit {
         console.log("failed login");
         this.invalidCredential = true;
         this.message = res.message;
-       // this.router.navigate(['E-Ballot/api/home']);
-
       }
     });
 
