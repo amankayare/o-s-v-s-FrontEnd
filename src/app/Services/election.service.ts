@@ -37,4 +37,13 @@ export class ElectionService {
    return this.http.put<String>("http://localhost:8080/E-Ballot/api/modifyElection/",election);
  }
 
+
+ getAllElectionByCin(cin : any):Observable<Array<Election>>{
+  return this.http.get<Array<Election>>("http://localhost:8080/E-Ballot/api/getElectionByCin/"+cin);
+}
+
+getAllElectionByElectionIdInDesc():Observable<Array<Election>>{
+  return this.http.get<Array<Election>>("http://localhost:8080/E-Ballot/api/getElectionByEidInDesc/");
+}
+
 }

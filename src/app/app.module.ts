@@ -67,6 +67,7 @@ import { SearchPipe } from './Pipes/search.pipe';
     HttpClientModule,
     Ng2GoogleChartsModule,
     FormsModule
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

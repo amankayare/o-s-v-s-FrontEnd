@@ -105,3 +105,12 @@ function loadTracking() {
     ga('send', 'pageview');
 }
 //========================================================================================================
+
+export let dataVariable;
+function myFunction1() {
+    dataVariable = document.getElementById("greeter").value;
+   console.log(dataVariable);
+
+  }
+  
+  
