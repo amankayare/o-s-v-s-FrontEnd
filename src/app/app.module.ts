@@ -29,6 +29,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ElectionService } from './Services/election.service';
 import { LoginComponent } from './login/login.component';
 import { SearchPipe } from './Pipes/search.pipe';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { SearchPipe } from './Pipes/search.pipe';
     AddcandidateComponent,
     ManagecandidateComponent,
     LoginComponent,
-    SearchPipe
+    SearchPipe,
+    AdminloginComponent
   
 
 
