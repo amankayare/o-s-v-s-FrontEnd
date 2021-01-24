@@ -47,7 +47,11 @@
             <label for="exampleInputEmail1">Employee ID</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
             padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="employeeId" class="form-control" id="exampleInputEmail1" placeholder="Voter's Employee-ID">
-          </div>
+          <small id="emailHelp" class="form-text text-danger"
+          *ngIf="form.get('employeeId')?.invalid  && form.get('employeeId')?.touched" >Please Enter valid employeeId.</small>
+
+        </div>
+         
         </div>
       
 
@@ -56,7 +60,11 @@
             <label for="exampleInputEmail1">Full Name</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
             padding: .5rem .75rem;border-radius: .50rem;" type="text" formControlName="fullName" class="form-control" id="exampleInputEmail1" placeholder="Voter's Full Name">
-          </div>
+          <small id="emailHelp" class="form-text text-danger"
+          *ngIf="form.get('fullName')?.invalid  && form.get('fullName')?.touched" >Please Enter valid Full Name.</small>
+
+        </div>
+         
         </div>
         
         
@@ -65,7 +73,9 @@
             <label for="exampleInputEmail1">Adharcard Number</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
             padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" formControlName="adharNo"  id="exampleInputEmail1" placeholder="Voter's Adharcard Number">
-          </div>
+          <small id="emailHelp" class="form-text text-danger"
+          *ngIf="form.get('adharNo')?.invalid  && form.get('adharNo')?.touched" >Please Enter valid Adharcard number.</small>
+        </div>
         </div>
 
         <div class="col-lg-offset-0 col-lg-6 col-xs-12 col-sm-6">
@@ -73,7 +83,10 @@
             <label for="exampleInputEmail1">E-Mail Id</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
             padding: .5rem .75rem;border-radius: .50rem;" type="email" class="form-control" formControlName="email" id="exampleInputEmail1" placeholder="Voter's E-Mail Id">
-          </div>
+          <small id="emailHelp" class="form-text text-danger"
+          *ngIf="form.get('email')?.invalid  && form.get('email')?.touched" >Please Enter valid Email-id.</small>
+
+        </div>
         </div>
 
            
@@ -83,7 +96,10 @@
             <label for="exampleInputEmail1">Password</label>
             <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
             padding: .5rem .75rem;border-radius: .50rem;" type="password" class="form-control" formControlName="password" id="exampleInputEmail1" placeholder="Voter's Password">
-          </div>
+          <small id="emailHelp" class="form-text text-danger"
+          *ngIf="form.get('password')?.invalid  && form.get('password')?.touched" >Please Enter valid Password.</small>
+
+        </div>
         </div>
       
        
@@ -110,7 +126,8 @@
       <br>
 
 
-      <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#exitApplication" (click)="addVoter()"> Submit </button>
+      <button type="button" class="btn btn-primary btn-large" data-toggle="modal" data-target="#exitApplication" [disabled]="!form.valid"
+       (click)="addVoter()"> Submit </button>
 
 
       <!-- Exit (Are you sure?) Modal -->

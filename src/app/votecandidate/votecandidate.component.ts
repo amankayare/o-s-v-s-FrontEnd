@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-votecandidate',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./votecandidate.component.css']
 })
 export class VotecandidateComponent implements OnInit {
+  showSpinner = true;
+  data: any;
+  constructor(private spinner: NgxSpinnerService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit() {
+    
+   
+}
 }

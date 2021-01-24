@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Candidate } from '../Entities/candidate';
 import { CandidateService } from '../Services/candidate.service';
@@ -11,7 +11,7 @@ import { CandidateService } from '../Services/candidate.service';
   styleUrls: ['./managecandidate.component.css']
 })
 export class ManagecandidateComponent implements OnInit {
-  form: FormGroup;
+  
 
   candidate : Candidate = new Candidate();
 
@@ -27,22 +27,25 @@ export class ManagecandidateComponent implements OnInit {
   employeeId: String | undefined
   candidateId:number | undefined
 
+  submitted = false;
+public form = this.fb.group({
+    fullName: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]{5,20}$')]],
+    email: ['', [Validators.required,Validators.pattern('^[A-Za-z0-9_.]{4,20}@[A-Za-z]{3,8}\.[A-Za-z]{2,10}$'),],],
+    adharNo:0,
+    symbol:[null],
+    employeeId:['',[Validators.required,Validators.pattern('^[a-zA-Z0-9 ]{5,20}$')]],
+    candidateId:['']
 
+  })
   constructor(private http:HttpClient,private candidateService:CandidateService,private fb:FormBuilder,private sanitizer: DomSanitizer) { 
 
 
-    this.form = this.fb.group({
-      fullName: [''],
-      email: [''],
-      adharNo:0,
-      symbol:[null],
-      employeeId:[''],
-      candidateId:['']
-
-    })
 
   }
-
+  vari =false;
+  iserror=false;
+  errormsg="";
+  
   
 public getSantizeUrl(url : any) {
     return this.sanitizer.bypassSecurityTrustUrl(url);

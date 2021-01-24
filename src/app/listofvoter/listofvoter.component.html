@@ -5,20 +5,17 @@
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 <app-sidebar></app-sidebar>
 <app-navbar></app-navbar>
+
 <section id="contents">
 
         <!--for demo wrap-->
         <br>
+       
+      
+
         
         <h1>Voter List</h1>
-        <div class="wrap">
-          <div class="search">
-             <input  type="text" class="searchTerm" placeholder="Which voter your looking for?">
-             <button type="submit" class="searchButton">
-               <i class="fa fa-search"></i>
-            </button>
-          </div>
-       </div>
+       
         <div class="tbl-header ">
           <table>
             <thead>
@@ -81,7 +78,7 @@
               </li>
               &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; <button type="button" (click)="addAllElectionDetails()" class="btn btn-danger btn-large" data-toggle="modal" data-target="#exitApplication">
                 submit </button>
-
+              <span>sending mail....</span>
             </ul>
           </nav>
       <!-- Exit (Are you sure?) Modal -->
@@ -102,7 +99,16 @@
         </div>
       </div> -->
       <!-- /Exit (Are you sure?) Modal -->
-      
+      <!-- <circle-progress *ngIf="showSpinner"
+      [percent]="100"
+      [radius]="100"
+      [outerStrokeWidth]="16"
+      [innerStrokeWidth]="8"
+      [outerStrokeColor]="'#78C000'"
+      [innerStrokeColor]="'#C7E596'"
+      [animation]="true"
+      [animationDuration]="50000"
+      ></circle-progress> -->
 </section>
 
 

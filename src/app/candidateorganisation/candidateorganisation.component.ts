@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,18 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./candidateorganisation.component.css']
 })
 export class CandidateorganisationComponent implements OnInit {
-  form: FormGroup;
+ 
+  submitted = false;
+
+  public form = this.fb.group({
+    cin: ['', [Validators.required,Validators.pattern('^[a-zA-Z0-9 ]{5,20}$')]],
+    orgnizationName: ['',Validators.required,[Validators.required,Validators.pattern('^[a-zA-Z ]{5,20}$')]],
+    adharNo:[''],
+    excelFile:[null]
+  })
   constructor(private router:Router,private http:HttpClient,public fb: FormBuilder) {
 
     
-    this.form = this.fb.group({
-      cin: [''],
-      orgnizationName: [''],
-      adharNo:[''],
-      excelFile:[null]
-    })
-
+    
 }
+vari =false;
+    iserror=false;
+    errormsg="";
 
   ngOnInit(): void {
   }
@@ -30,11 +35,13 @@ export class CandidateorganisationComponent implements OnInit {
     console.log("upload file form");
 
     const file =(event.target as HTMLInputElement).files![0];
+    
   
     this.form.patchValue({
       excelFile: file
     });
     this.form.get("excelFile")?.updateValueAndValidity();
+    
   }
 
   submitOrganizationDetails(){

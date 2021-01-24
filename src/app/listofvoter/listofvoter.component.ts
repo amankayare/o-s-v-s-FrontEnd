@@ -44,7 +44,7 @@ export class ListofvoterComponent implements OnInit {
     this.allVoter();
   }
    
-
+ 
   
   async getVoter(id: number){
      this.voterObj=await this.voterService.getVoter(id).toPromise();
@@ -59,5 +59,9 @@ export class ListofvoterComponent implements OnInit {
    console.log(this.allElection);    
    this.router.navigate(['E-Ballot/api/createballot']); 
  }
+
+
+
+
 
 }

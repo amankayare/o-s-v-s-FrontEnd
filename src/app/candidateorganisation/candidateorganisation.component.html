@@ -30,8 +30,8 @@
     <div class="alert alert-info" role="alert">
       <h3>Thank you for choosing e-ballot.</h3>
       <br>
-      <h4>Here are some rules you need to follow.</h4><p>1.You are allowed to upload file followed by png extention only. Files with jpg/jifi is not allowed. </p>
-      <p>2. In the  </p>
+      <h4>Here are some rules you need to follow.</h4><p>1.You are allowed to upload file followed by .xlsx extention only. Files with jpg/jifi is not allowed. </p>
+      <p>2. In the excel sheet there should be field with EmployeeID, Full name,Email and Adharcard.</p>
     </div>
   
       <form [formGroup]="form">
@@ -44,7 +44,10 @@
               <label for="exampleInputEmail1">CIN</label>
               <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
               padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control"  formControlName="cin" id="exampleInputEmail1" placeholder="Enter CIN Number">
-            </div>
+             <small id="emailHelp" class="form-text text-danger"
+             *ngIf="form.get('cin')?.invalid  && form.get('cin')?.touched" >Please Enter valid CIN.</small>
+
+          </div>
           </div>
         
   
@@ -55,7 +58,11 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Organisation Name</label>
               <input style="border: 1px solid rgba(0,0,0,.15);     width: 100%;
-              padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1"  formControlName="orgnizationName" placeholder="Enter Your Organisation Name">
+              padding: .5rem .75rem;border-radius: .50rem;" type="text" class="form-control" id="exampleInputEmail1" 
+               formControlName="orgnizationName" placeholder="Enter Your Organisation Name">
+               <small id="emailHelp" class="form-text text-danger"
+               *ngIf="form.get('orgnizationName')?.invalid  && form.get('orgnizationName')?.touched" >Please Enter valid Organisation Name.</small>
+  
             </div>
           </div>
           
@@ -64,6 +71,7 @@
               <label for="exampleInputEmail1">Upload File Details</label>
      
               <input type="file" class="form-control" id="customFile"   (change)="uploadFile($event)"/> </div>
+              <span class="text-danger" *ngIf="iserror">{{errormsg}}</span>
           </div>
         
           <div class="bg-warning col-lg-offset-0 col-lg-12 col-xs-12">
@@ -86,7 +94,8 @@
         
         <hr>
   <br>
-        <button type="button" class="btn btn-primary btn-large"  data-toggle="modal" data-target="#exitApplication" (click)="submitOrganizationDetails()"> Submit </button>
+        <button type="button" class="btn btn-primary btn-large" 
+        [disabled]="vari && !form.valid" data-toggle="modal" data-target="#exitApplication" (click)="submitOrganizationDetails()"> Submit </button>
   
         <!-- Exit (Are you sure?) Modal -->
         <div class="modal fade" id="exitApplication" tabindex="-1" role="dialog" aria-labelledby="exitApplication">

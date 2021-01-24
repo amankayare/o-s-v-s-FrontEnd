@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,7 +31,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ElectionService } from './Services/election.service';
 import { LoginComponent } from './login/login.component';
 import { SearchPipe } from './Pipes/search.pipe';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -56,8 +58,7 @@ import { SearchPipe } from './Pipes/search.pipe';
     ManagecandidateComponent,
     LoginComponent,
     SearchPipe
-  
-
+ 
 
   ],
   imports: [
@@ -66,10 +67,22 @@ import { SearchPipe } from './Pipes/search.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     Ng2GoogleChartsModule,
-    FormsModule
- 
+    FormsModule,
+    CommonModule,
+    NgxSpinnerModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    })
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

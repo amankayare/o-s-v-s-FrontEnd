@@ -1,114 +1,24 @@
-
-
+ 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
- <aside class="side-nav" id="show-side-navigation1">
-     <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
-     <div class="heading">
-       <img src="assets/pravin.jpg" alt="">
-       <div class="info">
-         <h3><a href="#">Pravin Jeukar</a></h3>
-         <p>Software Developer</p>
-       </div>
-     </div>
-     <div class="search">
-       <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
-     </div>
-     <ul class="categories">
-       <li><i class="fas fa-person-booth"></i><a>Vote Candidate</a>
-        
-       </li>
-       <li><i class="fas fa-poll"></i><a> Results</a>
-       </li>
-       
-       <li><i class="fas fa-user-edit"></i><a href="#"> Profile</a>
-       <li><i class="fa fa-users fa-fw"></i><a> Our team</a>
-        
-       </li>
-     
-       
-        
-     </ul>
-   </aside>
-   
-   
- <section id="contents">
-
-  
-
-<nav class="navbar navbar-default" style="background-color:#252636;">
- <div class="container-fluid">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-       <i class="fa fa-align-right"></i>
-     </button>
-     <a class="navbar-brand" href="#">my<span class="main-color">Dashboard</span></a>
-   </div>
-   <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-     <ul class="nav navbar-nav">
-       <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My profile <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-           <li><a href="#"><i class="fa fa-user"></i> My account</a></li>
-           <li><a href="#"><i class="fa fa-envelope"></i> My inbox</a></li>
-           <li><a href="#"><i class="fa fa-question-circle"></i> Help</a></li>
-           <li role="separator" class="divider"></li>
-           <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
-         </ul>
-       </li>
-       <li><a href="#"><i class="fa fa-comments"></i><span>23</span></a></li>
-       <li><a href="#"><i class="fa fa-bell-o"></i><span>98</span></a></li>
-       <li><a href="#"><i data-show="show-side-navigation1" class="fa fa-bars show-side-btn"></i></a></li>
-     </ul>
-   </div>
- </div>
-</nav>
-
-
-<section class='statis text-center'> 
-    <h1 class="title">Our Team Card<br></h1>
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-4">
-         <div class="team">
-      <div class="team-img">
-        <img src="https://demo.htmlcodex.com/660/team-page-html-template/img/team-2-2.jpg" alt="Team Image">
-        <div class="team-social">
-          <button type="button" class="btn btn-danger">Vote</button>
-          
-        </div>
-      </div>
-      <div class="team-content">
-        <h2>Josh Dunn</h2>
-        <h3>CEO &amp; Founder</h3>
-        <p>Some text goes here that describes about team member</p>
-        
-      </div>
+ <app-sidebar></app-sidebar>
+ <app-navbar></app-navbar>
+ 
+ 
+ <section style="margin-left: 50%; margin-top: 10%;margin-right: 50%;">
+ 
+    <h1 >Sending Mail!</h1>
+ <circle-progress style="margin-top: 50%;" *ngIf="showSpinner"
+      [percent]="100"
+      [radius]="100"
+      [outerStrokeWidth]="16"
+      [innerStrokeWidth]="8"
+      [outerStrokeColor]="'#78C000'"
+      [innerStrokeColor]="'#C7E596'"
+      [animation]="true"
+      [animationDuration]="50000"
+      ></circle-progress>
       
-    </div>
-    </div>
-    <div class="col-md-4">
-<div class="team">
-      <div class="team-img">
-        <img src="https://demo.htmlcodex.com/660/team-page-html-template/img/team-2-2.jpg" alt="Team Image">
-        <div class="team-social">
-          <button type="button" class="btn btn-danger">Vote</button>
-          
-        </div>
-      </div>
-      <div class="team-content">
-        <h2>Josh Dunn</h2>
-        <h3>CEO &amp; Founder</h3>
-        <p>Some text goes here that describes about team member</p>
-        
-      </div>
-      
-    </div>
-</div>
-
-</div>
-</div>
-</section>
- </section>
+    
+    </section>
