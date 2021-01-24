@@ -16,7 +16,7 @@ import { ElectionService } from '../Services/election.service';
 export class ListofcandidateComponent implements OnInit {
 
   form: FormGroup;
-
+  adharNo = "";
   
   listOfCandidate : Candidate[] | undefined;
 
@@ -62,5 +62,7 @@ export class ListofcandidateComponent implements OnInit {
   ngOnInit(): void {
     this.allCandidate();
   }
-
+  myFunction() {
+   
+  }
 }

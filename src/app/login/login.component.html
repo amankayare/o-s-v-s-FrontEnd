@@ -7,15 +7,14 @@
           <div class="user signinBx">
             <div class="imgBx"><img src="https://www.eballot.com/hs-fs/hubfs/EBA-03-Home-Online-Election-Software-Security.jpg?width=1300&height=720&name=EBA-03-Home-Online-Election-Software-Security.jpg" alt="" /></div>
             <div class="formBx">
-              <form action="" onsubmit="return false;">
+              <form [formGroup]="form" >
                 <h2>Sign In</h2>
-                <input type="number" name="" placeholder="Adharcard Number" />
-                <input type="password" name="" placeholder="Password" />
-                <input type="submit" name="" value="Login" />
-                <!-- <p class="signup">
-                  Don't have an account ?
-                  <a >Sign Up.</a>
-                </p> -->
+                <input type="number" placeholder="Adharcard Number"  formControlName="adharNo"/>
+                <input type="password"  formControlName="password" placeholder="Password" />
+                <input type="submit"   (click)="submitForm()" value="Login">
+                <div class="alert alert-danger" role="alert" *ngIf="invalidCredential">
+                              {{message}}
+              </div>
               </form>
             </div>
           </div>
