@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Election } from '../Entities/election';
+import { ElectionService } from '../Services/election.service';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class VoterdashboardComponent implements OnInit {
   electionId: any;
 
 
-  constructor(private router: Router, private http: HttpClient, public fb: FormBuilder) {
+  constructor(private router: Router, private http: HttpClient, public fb: FormBuilder,private electionService:ElectionService) {
 
     // this.employeeId = 10;
     this.form = this.fb.group({
@@ -26,8 +28,9 @@ export class VoterdashboardComponent implements OnInit {
     })
   }
 
+  election: Election | any;
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
 
 
 
@@ -40,6 +43,15 @@ export class VoterdashboardComponent implements OnInit {
 
     console.log(this.voterId);
     console.log(this.electionId);
+
+   this.election =  await this.electionService.getElection(this.electionId).toPromise();
+    console.log(this.election);  
+    //  let num:number=0;
+    //  let i:number;
+
+    //  for(i=num;i<this.election.candidateList?.length;i++){
+             
+    //  }
 
   }
 
