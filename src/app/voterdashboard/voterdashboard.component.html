@@ -63,10 +63,10 @@
 
 
 
-  <body ng-app="myApp" ng-controller="mainController" *ngIf="isValidated">
+  <body ng-app="myApp" ng-controller="mainController">
     <div class="poll-container">
       <div class="poll-voter">
-        <h4 class="poll-title">Vote Candidate for CEO Position</h4>
+        <!-- <h4 class="poll-title">Vote Candidate for CEO Position</h4> -->
         <hr style="border: none; height: 2px; background: #ADC0DF;">
         <table class="poll-list">
           <thead>
@@ -80,74 +80,18 @@
           <tbody>
           <hr style="height: 5px;">
            
-            <tr class="vote-row" ng-repeat="opt in options">
-              <td class="poll-option"><p>Pravin Jeurkar</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-              <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
+            <tr class="vote-row" ng-repeat="opt in options" *ngFor="let item of election.candidateList">
+              <td class="poll-option"><p>{{item.fullName}}</p><div class="poll-option-bar" style="width: 100%;"></div></td>
+              <!-- <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
                 <div class="poll-option-bar" style="width: 100%;"></div></td>
             
-                <td><label>
-                  <input type="radio" class="option-input radio" name="example" />
-                </label></td>
+                <td><label> -->
+                  <td>
+                  <input type="radio" class="option-input radio"  name="example" />
+                </td>
 
             </tr>
-            <hr style="height: 5px;">
-            <tr class="vote-row" ng-repeat="opt in options">
-                <td class="poll-option"><p>Mrudula Deo</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-                <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                  <div class="poll-option-bar" style="width: 100%;"></div></td>
-              
-                  <td><label>
-                    <input type="radio" class="option-input radio" name="example" />
-                  </label></td>
-                
-                
-                </tr>
-              <hr style="height: 5px;">
-              <tr class="vote-row" ng-repeat="opt in options">
-                <td class="poll-option"><p>Aman kayre</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-                <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                  <div class="poll-option-bar" style="width: 100%;"></div></td>
-              
-                <td><label>
-                  <input type="radio" class="option-input radio" name="example" />
-                </label></td>
-              </tr>
-              <hr style="height: 5px;">
-              <tr class="vote-row" ng-repeat="opt in options">
-                <td class="poll-option"><p>Shwetlana Patil</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-                <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                  <div class="poll-option-bar" style="width: 100%;"></div></td>
-              
-                  <td><label>
-                    <input type="radio" class="option-input radio" name="example" />
-                  </label></td>
-              </tr>
-
-              <hr style="height: 5px;">
-              <tr class="vote-row" ng-repeat="opt in options">
-                <td class="poll-option"><p>Neha Rambhad</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-                <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                  <div class="poll-option-bar" style="width: 100%;"></div></td>
-              
-                  <td><label>
-                    <input type="radio" class="option-input radio" name="example" />
-                  </label></td>
-
-
-              </tr>
-              <hr style="height: 5px;">
-              <tr class="vote-row" ng-repeat="opt in options">
-                <td class="poll-option"><p>Neha Rambhad</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-                <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                  <div class="poll-option-bar" style="width: 100%;"></div></td>
-              
-                  <td><label>
-                  <input type="radio" class="option-input radio" name="example" />
-                </label></td>
-
-              </tr>
-             
-              
+               
           </tbody>
         </table>
       </div>
