@@ -8,7 +8,6 @@ import { AddvoterComponent } from './addvoter/addvoter.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
 import { ListofvoterComponent } from './listofvoter/listofvoter.component';
 import { ListofcandidateComponent } from './listofcandidate/listofcandidate.component';
 import { VoterdashboardComponent } from './voterdashboard/voterdashboard.component';
@@ -20,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddcandidateComponent } from './addcandidate/addcandidate.component';
 import { ManagecandidateComponent } from './managecandidate/managecandidate.component';
 import { CandidateorganisationComponent } from './candidateorganisation/candidateorganisation.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'E-Ballot/api/addvoter', component: AddvoterComponent },
   { path: 'E-Ballot/api/footer', component: FooterComponent },
   { path: 'E-Ballot/api/header', component: HeaderComponent },
-  { path: 'E-Ballot/api/login', component: LoginComponent },
+  { path: 'E-Ballot/api/login/:id', component: LoginComponent },
   { path: 'E-Ballot/api/candidatelist', component: ListofcandidateComponent },
   { path: 'E-Ballot/api/voterlist', component: ListofvoterComponent },
   { path: 'E-Ballot/api/voterdashboard', component: VoterdashboardComponent },

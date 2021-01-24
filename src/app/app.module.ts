@@ -12,7 +12,6 @@ import { AddvoterComponent } from './addvoter/addvoter.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
 import { ListofvoterComponent } from './listofvoter/listofvoter.component';
 import { ListofcandidateComponent } from './listofcandidate/listofcandidate.component';
 import { VoterdashboardComponent } from './voterdashboard/voterdashboard.component';
@@ -28,6 +27,8 @@ import { ManagecandidateComponent } from './managecandidate/managecandidate.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ElectionService } from './Services/election.service';
+import { LoginComponent } from './login/login.component';
+import { SearchPipe } from './Pipes/search.pipe';
 
 
 @NgModule({
@@ -41,7 +42,6 @@ import { ElectionService } from './Services/election.service';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
-    LoginComponent,
     ListofvoterComponent,
     ListofcandidateComponent,
     VoterdashboardComponent,
@@ -54,7 +54,8 @@ import { ElectionService } from './Services/election.service';
     ProfileComponent,
     AddcandidateComponent,
     ManagecandidateComponent,
-     
+    LoginComponent,
+    SearchPipe
   
 
 

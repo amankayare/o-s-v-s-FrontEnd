@@ -18,7 +18,7 @@ export class ListofvoterComponent implements OnInit {
   voterForm!: FormGroup;
   voterObj: Voter =new Voter();
   allElection: Promise<String> | undefined;
-  
+  adharNo="";
 
   constructor(private router:Router,private http:HttpClient,private voterService:VoterService,private fb:FormBuilder,private electionService:ElectionService) {
 

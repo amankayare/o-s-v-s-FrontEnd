@@ -15,7 +15,7 @@
         <h1>Candidate List</h1>
         <div class="wrap">
           <div class="search">
-             <input  type="text" class="searchTerm" placeholder="Which candidate your looking for?">
+             <input  type="text" class="searchTerm" id="myInput" onkeyup="myFunction()" [(ngModel)]="adharNo" placeholder="Which candidate your looking for?">
              <button type="submit" class="searchButton">
                <i class="fa fa-search"></i>
             </button>
@@ -23,7 +23,7 @@
        </div>
       
         <div class="tbl-header ">
-          <table>
+          <table id="myTable">
             <thead>
               <tr>
                 <th>Employee ID</th>
@@ -39,7 +39,7 @@
         <div class="tbl-content">
           <table>
             <tbody>
-              <tr  *ngFor="let candidate of listOfCandidate" [formGroup]="form">
+              <tr  *ngFor="let candidate of listOfCandidate | search:adharNo ; " [formGroup]="form">
                 <td>
                   <div class="form-group">
                    {{candidate.employeeId}}
