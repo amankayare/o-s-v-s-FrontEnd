@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleChartInterface } from 'ng2-google-charts';
 import { Election } from '../Entities/election';
+import { CandidateElectionEarnedServiceService } from '../Services/candidate-election-earned-service.service';
+import { CandidateService } from '../Services/candidate.service';
 import { ElectionService } from '../Services/election.service';
 @Component({
   selector: 'app-content',
@@ -20,93 +22,122 @@ export class ContentComponent implements OnInit {
   public ColumnChart: GoogleChartInterface | any;
 
   public lineChart: GoogleChartInterface | any;
+  eName: any;
 
-  constructor(private electionService:ElectionService) { }
+  isElection : boolean =false;
+  election: Election | any;
+  candidateName: string | any;
+  candidateLenght: number | any;
+
+  constructor(private electionService:ElectionService,private candidateElectionEarnedService:CandidateElectionEarnedServiceService) { }
 
 
-  async allElection(){
-    this.electionList= await this.electionService.getAllElection().toPromise();
+  async recentElection(){
+
+
+    this.electionList= await this.electionService.getAllElectionByElectionIdInDesc().toPromise();
   
     console.log(this.electionList);
 
-    this.electionCount=this.electionList[0].candidateList.length;
-    let len=this.electionCount;
+  
+    
     let num1:number=0;
     let i!:number;
      let num2:number=0;
     let j!:number;
-    console.log(len);
-    for(i=num1 ; i< len ; i++){
+  
+
    
   
      let voteEarned : any;
-     let  candidateName : any;
-     //let arrayOfArray : [5] | any;
+    
+      
+     var arrayOfArray: any[][] = [];
 
-     var person: any[] = [];
-    //  person[0] = "John";
-    //  person[1] = "Doe";
-    //  person[2] = 46;
+     
+     arrayOfArray[0]=['SecureVote', 'Vote overall percent'];
 
-     console.log(person);
-
-
-    //  var arr :any;
-    // arrayOfArray.push(['SecureVote', 'Vote overall percent']);
+     this.eName=this.electionList[0].electionName;
 
 
-    var arrayOfArray: any[][] = [];
+    // //  var arr :any;
+ 
+    this.election= await  this.electionService.getElection(this.electionList[0].electionId).toPromise();
 
-    arrayOfArray[0]=['SecureVote', 'Vote overall percent'];
-     for(j=num2; j <this.electionList[i].candidateList.length ; j++){
-          
+    console.log(this.election);
 
-            candidateName=this.electionList[i].candidateList[j].fullName;
-            voteEarned=this.electionList[i].candidateList[j].voteEarned;
-            console.log(candidateName+" "+voteEarned);
+  
 
-            var arr: any[] = [];
+    this.candidateLenght=(await this.election).candidateList?.length;
 
-           // arrayOfArray[j]=candidateName;
+     console.log(this.candidateLenght);
+
+      for(j=num2; j <this.candidateLenght; j++){
+           
             
-            console.log(j);
-            arr[0]=candidateName;
-            arr[1]=voteEarned;
+        this.candidateName=this.election.candidateList[j].fullName;
+        
+        console.log(this.candidateName)
+
+            console.log(this.election.candidateList[j].email)
+
+             var eId=this.election.electionId;
+             var cId=this.election.candidateList[j].candidateId;
+             console.log("cId"+cId+" "+"eId"+eId);
+ 
+ 
+             voteEarned = await this.candidateElectionEarnedService.getCandidateVoteEarned(eId,cId).toPromise();
+
+             console.log(this.candidateName+" "+voteEarned);
+             console.log(voteEarned);
+             var arr: any[] = [];
+ 
+             console.log(j);
+             arr[0]=this.candidateName;
+             arr[1]=voteEarned;
+           
+             arrayOfArray[j+1]=arr;
+ 
+         }
+ 
+         console.log(arrayOfArray);
+         
+        // this.threeDarray[i]=arrayOfArray;
+
+        if(arrayOfArray.length){
           
-            arrayOfArray[j+1]=arr;
-            // arrayOfArray.push(['SecureVote', 'Vote overall percent']);
-            // arrayOfArray.push(arr);
-        }
+      
 
-       // console.log(arrayOfArray);
+          this.isElection=true;
 
-        console.log(arrayOfArray);
-
-        this.pieChart={
-            chartType: 'ColumnChart',
-            dataTable: arrayOfArray,
+         this.pieChart={
+          chartType: 'ColumnChart',
+          dataTable:arrayOfArray,
+          //firstRowIsData: true,
+          options: {'title': 'SecureVotes'},
+        };
+  
+  
+        this.ColumnChart={
+            chartType: 'PieChart',
+            dataTable:arrayOfArray,
             //firstRowIsData: true,
             options: {'title': 'SecureVotes'},
           };
-    
-
-          this.ColumnChart={
-              chartType: 'PieChart',
+        
+          this.lineChart = {
+              chartType: 'LineChart',
               dataTable:arrayOfArray,
               //firstRowIsData: true,
               options: {'title': 'SecureVotes'},
             };
-          
-            this.lineChart = {
-                chartType: 'LineChart',
-                dataTable:arrayOfArray,
-                //firstRowIsData: true,
-                options: {'title': 'SecureVotes'},
-              };
-     }
-}
+   
+
+        }
+  }
+
   ngOnInit(): void {
-    this.allElection();
+    this.recentElection();
   }
 
 }
