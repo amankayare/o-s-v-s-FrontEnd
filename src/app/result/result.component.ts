@@ -54,10 +54,6 @@ export class ResultComponent implements OnInit {
     this.electionList= await this.electionService.getAllElection().toPromise();
     console.log(this.electionList);
   
-   
-    this.electionCount=this.electionList[0].candidateList.length;
-
-
 }
 
 
@@ -197,10 +193,11 @@ fullName: string = "home";
       var n:number=0;
       var i:number;
     console.log("115");
-      for(i=n;i<this.electionCount;i++){
+      for(i=n;i<this.electionList.length;i++){
        console.log("117");
        console.log(" from html "+this.voter.fullName);
        console.log(" from ts "+this.electionList[i].cin);
+
         if(this.voter.fullName==this.electionList[i].cin){
           console.log("119");
           let len=this.electionCount;

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Election } from '../Entities/election';
+import { CandidateElectionEarnedServiceService } from '../Services/candidate-election-earned-service.service';
 import { ElectionService } from '../Services/election.service';
 
 
@@ -17,9 +18,12 @@ export class VoterdashboardComponent implements OnInit {
   form: FormGroup;
   voterId: any;
   electionId: any;
+  goToPollStatus: Promise<Object> | any;
+  electionName: any;
+  isVoted: any;
 
 
-  constructor(private router: Router, private http: HttpClient, public fb: FormBuilder,private electionService:ElectionService) {
+  constructor(private router: Router, private http: HttpClient, public fb: FormBuilder,private electionService:ElectionService,private candidateVoteEarned:CandidateElectionEarnedServiceService) {
 
     // this.employeeId = 10;
     this.form = this.fb.group({
@@ -32,7 +36,7 @@ export class VoterdashboardComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
 
-
+ 
 
     if (!sessionStorage.getItem('voterId') || !sessionStorage.getItem('electionId')) {
       this.router.navigate(['/']);
@@ -41,10 +45,11 @@ export class VoterdashboardComponent implements OnInit {
       this.electionId = sessionStorage.getItem('electionId');
     }
 
-    console.log(this.voterId);
-    console.log(this.electionId);
+    console.log(" vId "+this.voterId);
+    console.log(" eId "+this.electionId);
 
    this.election =  await this.electionService.getElection(this.electionId).toPromise();
+   this.electionName=this.election.electionName;
     console.log(this.election);  
     //  let num:number=0;
     //  let i:number;
@@ -65,14 +70,14 @@ export class VoterdashboardComponent implements OnInit {
     this.form.get("securedFile")?.updateValueAndValidity();
   }
 
-  validateVoter() {
+  async validateVoter() {
     var formData: any = new FormData();
 
     console.log(this.voterId);
     console.log(this.electionId);
     formData.append("decrytFile", this.form.get("securedFile")?.value);
-    formData.append("electionId", this.voterId);
-    formData.append("voterId", this.electionId);
+    formData.append("electionId", this.electionId);
+    formData.append("voterId", this.voterId);
 
     let headers = new HttpHeaders();
     headers.append("Accept", "application/json");
@@ -81,19 +86,50 @@ export class VoterdashboardComponent implements OnInit {
     headers.append("responseType", "text");
 
 
-    this.http.post('http://localhost:8080/E-Ballot/api/goToPoll', formData, { headers: headers }).subscribe(
-      (response) => {
-        console.log(response)
+    this.goToPollStatus= await this.http.post('http://localhost:8080/E-Ballot/api/goToPoll', formData, { headers: headers }).toPromise();
 
-      },
-      (error) => console.log(JSON.parse(JSON.stringify(error)))
-    )
-
+    if (this.goToPollStatus.status == "SUCCESS") {
+      console.log("successfull open the poll");
+      // mode:number = res.adharNo;
+      //sessionStorage.setItem('adhar',res.adharNo);
+      console.log(this.goToPollStatus);
+      this.isValidated=true;
+    } else {
+      console.log("failed to open the poll");
+      console.log(this.goToPollStatus);
+      this.isValidated=false;
+    }
 
   }
 
 
+  async checkIsVoted(id:any){
+      
 
+    var formData: any = new FormData();
 
+    console.log(this.voterId);
+    console.log(this.electionId);
+    formData.append("candidateId", id);
+    formData.append("electionId",this.electionId);
+    formData.append("voterId", this.voterId );
+
+    let headers = new HttpHeaders();
+    headers.append("Accept", "application/json");
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", "my_token");
+    headers.append("responseType", "text");
+
+   
+
+    this.isVoted=await this.candidateVoteEarned.modifyCandidateVoteEarnedAndVoterVoteStatus(formData).toPromise();
+
+    console.log(this.isVoted);
+
+    if(this.isVoted.status=="SUCCESS"){
+    //  this.isValidated=false;
+    }
+
+  }
 
 }

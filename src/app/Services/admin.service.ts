@@ -33,7 +33,7 @@ export class AdminService {
     return this.http.put<String>("http://localhost:8080/E-Ballot/api/modifyAdmin/",admin);
   }
   loginRequest(formData:any,header :any):Observable<Admin>{
-    return this.http.post<Admin>("http://localhost:8080/E-Ballot/api/loginAdmin/", formData, { headers: header },);
+    return this.http.post<Admin>("http://localhost:8080/E-Ballot/api/adminLogin/", formData, { headers: header },);
   }
 
 }

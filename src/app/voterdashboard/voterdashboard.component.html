@@ -63,10 +63,10 @@
 
 
 
-  <body ng-app="myApp" ng-controller="mainController">
+  <body ng-app="myApp" ng-controller="mainController" *ngIf="isValidated">
     <div class="poll-container">
       <div class="poll-voter">
-        <!-- <h4 class="poll-title">Vote Candidate for CEO Position</h4> -->
+        <h4 class="poll-title">Vote Candidate for {{this.electionName}}</h4>
         <hr style="border: none; height: 2px; background: #ADC0DF;">
         <table class="poll-list">
           <thead>
@@ -82,16 +82,13 @@
            
             <tr class="vote-row" ng-repeat="opt in options" *ngFor="let item of election.candidateList">
               <td class="poll-option"><p>{{item.fullName}}</p><div class="poll-option-bar" style="width: 100%;"></div></td>
-              <!-- <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%"> 
-                <div class="poll-option-bar" style="width: 100%;"></div></td>
+              <!-- <td class="poll-option"> <img src="assets/pravin.jpg" class="img-rounded" alt="Cinque Terre" width="10%" height="7%">  -->
+                <!-- <div class="poll-option-bar" style="width: 100%;"></div></td> -->
             
-                <td><label> -->
-                  <td>
-                  <input type="radio" class="option-input radio"  name="example" />
-                </td>
-
-            </tr>
-               
+                <td><label>
+                  <input type="radio" class="option-input radio" (click)="checkIsVoted(item.candidateId)" name="example" />
+                </label></td>
+              
           </tbody>
         </table>
       </div>

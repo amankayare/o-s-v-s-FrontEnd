@@ -13,7 +13,7 @@ import { VoterService } from '../Services/voter.service';
 export class ManagevoterComponent implements OnInit {
 
   listOfVoter: Voter[] | undefined;
-
+ 
   voterForm!: FormGroup;
 
   candidate: Candidate = new Candidate();
@@ -65,7 +65,12 @@ export class ManagevoterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // var angular: any;
     this.allVoter();
+    // var app=angular.module("myModule",[]).controller("myController",($scope: any) =>{
+    //   $scope.listOfVoter=this.listOfVoter;
+    // });
+
   }
 
   load(){
