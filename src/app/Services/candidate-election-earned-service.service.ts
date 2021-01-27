@@ -16,4 +16,8 @@ export class CandidateElectionEarnedServiceService {
 
  }
 
+ modifyCandidateVoteEarnedAndVoterVoteStatus(formData:any):Observable<any>{
+   return this.http.put<any>("http://localhost:8080/E-Ballot/api/modifyCandidateVoteEarnedAndVoterVoteStatus/",formData);
+ }
+
 }

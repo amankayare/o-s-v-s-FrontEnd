@@ -62,7 +62,7 @@ export class AdminloginComponent implements OnInit {
      
     
      
-      if (res.status == "SUCCESS") {
+      //if (res.status == "SUCCESS") {
         console.log("successfull login");
         // mode:number = res.adharNo;
         //sessionStorage.setItem('adhar',res.adharNo);
@@ -73,13 +73,13 @@ export class AdminloginComponent implements OnInit {
 
       
 
-      } else {
-        console.log("failed login");
-        this.invalidCredential = true;
-        this.message = res.message;
+     // } else {
+        // console.log("failed login");
+        // this.invalidCredential = true;
+        // this.message = res.message;
        // this.router.navigate(['E-Ballot/api/home']);
 
-      }
+     //}
     });
 
 

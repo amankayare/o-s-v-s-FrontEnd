@@ -6,14 +6,12 @@
 <app-sidebar></app-sidebar>
 <app-navbar></app-navbar>
 
-<section id="contents">
+<body ng-app="myController">
+    <div ng-controller="myController">
+      <section id="contents">
 
-        <!--for demo wrap-->
+        <!-- search : <input type="text" placeholder="Search Voter " ng-Model="searchText" >  -->
         <br>
-       
-      
-
-        
         <h1>Voter List</h1>
        
         <div class="tbl-header ">
@@ -110,6 +108,8 @@
       [animationDuration]="50000"
       ></circle-progress> -->
 </section>
+    </div>
+</body>
 
 
    

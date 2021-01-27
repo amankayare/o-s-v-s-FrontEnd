@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { AppRoutingModule } from './app-routing.module';
@@ -73,18 +72,7 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
     ReactiveFormsModule,
     HttpClientModule,
     Ng2GoogleChartsModule,
-    FormsModule,
-    
-    NgxSpinnerModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    })
+    FormsModule
 
   ],
   providers: [],
